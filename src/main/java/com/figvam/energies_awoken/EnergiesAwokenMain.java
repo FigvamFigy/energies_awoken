@@ -2,6 +2,7 @@ package com.figvam.energies_awoken;
 
 
 import com.figvam.energies_awoken.proxy.CommonProxy;
+import com.figvam.energies_awoken.registries.RegistryEventHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -23,6 +24,7 @@ public class EnergiesAwokenMain {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
+        RegistryEventHandler.registerTileEntity();
     }
 
     @Mod.EventHandler
