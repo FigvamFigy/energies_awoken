@@ -1,12 +1,8 @@
 package com.figvam.energies_awoken.util;
 
+public enum EnumBaseLifeEnergy {
 
-
-public class AcceptedItemsInBreakdown {
-
-
-
-
+    GROUNDING
 
 
 }
