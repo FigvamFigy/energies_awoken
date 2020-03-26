@@ -4,16 +4,29 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerBreakdownMachine extends Container {
 
+    private final int SLOT_INPUT = 0;
 
     public ContainerBreakdownMachine(InventoryPlayer inventoryPlayer, TileEntityBreakdownMachine tileEntityBreakdownMachine){
 
+        IItemHandler handler = tileEntityBreakdownMachine.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,null);
 
-
+        createChestInventorySlots(handler);
         createRegularInventorySlots(inventoryPlayer);
     }
+
+
+    private void createChestInventorySlots(IItemHandler handler){
+
+        this.addSlotToContainer(new SlotItemHandler(handler,SLOT_INPUT,26,35));
+
+    }
+
 
     private void createRegularInventorySlots(InventoryPlayer playerInventory){
         //Regular inventory
