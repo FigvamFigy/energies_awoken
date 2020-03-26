@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 /**
  * This class is used for to determine what the compound life energy corresponds to a selected item
- *
+ * We call this in each of the item classes to add which items will be in the list
  */
 
 public class ItemCorrespondingCompoundEnergy {
