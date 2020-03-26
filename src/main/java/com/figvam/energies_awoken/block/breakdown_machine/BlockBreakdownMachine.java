@@ -2,6 +2,7 @@ package com.figvam.energies_awoken.block.breakdown_machine;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockBreakdownMachine extends Block {
 
@@ -9,6 +10,11 @@ public class BlockBreakdownMachine extends Block {
 
     private BlockBreakdownMachine(){
         super(Material.ROCK);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+
+        setUnlocalizedName("breakdown_machine");
+        setRegistryName("breakdown_machine");
+
     }
 
 
