@@ -1,5 +1,7 @@
 package com.figvam.energies_awoken.block.breakdown_machine;
 
+import com.figvam.energies_awoken.EnergiesAwokenMain;
+import com.figvam.energies_awoken.util.GuiIDList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -41,8 +43,11 @@ public class BlockBreakdownMachine extends Block {
         if(!worldIn.isRemote){
             TileEntityBreakdownMachine tile = TileEntityBreakdownMachine.getTileEntity(worldIn,pos);
             tile.incrementCount();
-
             playerIn.sendMessage(new TextComponentString("Count: " + tile.count));
+
+            playerIn.openGui(EnergiesAwokenMain.instance, GuiIDList.BREAKDOWN_MACHINE_ID,worldIn,pos.getX(),pos.getY(),pos.getZ());
+
+
         }
 
 
