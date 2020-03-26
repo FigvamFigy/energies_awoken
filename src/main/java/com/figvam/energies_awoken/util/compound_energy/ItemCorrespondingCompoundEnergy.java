@@ -1,4 +1,4 @@
-package com.figvam.energies_awoken.util;
+package com.figvam.energies_awoken.util.compound_energy;
 
 import net.minecraft.item.Item;
 
@@ -27,6 +27,17 @@ public class ItemCorrespondingCompoundEnergy {
 
     public static CompoundEnergyBase getItemCompoundEnergy(Item item){
         return hashMapItemToCompoundEnergy.get(item);
+    }
+
+
+    public static void fillHashMapFromAcceptedItems(Item[] acceptedItemsArray, CompoundEnergyBase[] compoundEnergyArray){
+        if(acceptedItemsArray.length != compoundEnergyArray.length){
+            throw new IllegalArgumentException("Item[] length is not the same size as CompoundEnergyBase[] in fillHashMapFromAcceptedItems in ItemCorrespondingCompoundEnergy");
+        }
+
+        for(int index = 0; index < acceptedItemsArray.length; index++){
+            hashMapItemToCompoundEnergy.put(acceptedItemsArray[index],compoundEnergyArray[index]);
+        }
     }
 
 

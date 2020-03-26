@@ -3,6 +3,8 @@ package com.figvam.energies_awoken;
 
 import com.figvam.energies_awoken.proxy.CommonProxy;
 import com.figvam.energies_awoken.registries.RegistryEventHandler;
+import com.figvam.energies_awoken.util.AcceptedItemsInBreakdown;
+import com.figvam.energies_awoken.util.compound_energy.ItemCorrespondingCompoundEnergy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -25,6 +27,7 @@ public class EnergiesAwokenMain {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
         RegistryEventHandler.registerTileEntity();
+        ItemCorrespondingCompoundEnergy.fillHashMapFromAcceptedItems(AcceptedItemsInBreakdown.ACCEPTED_ITEMS,AcceptedItemsInBreakdown.ITEM_COMPOUND_ENERGY);
     }
 
     @Mod.EventHandler
