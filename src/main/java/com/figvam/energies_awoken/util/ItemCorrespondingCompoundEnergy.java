@@ -1,5 +1,6 @@
-package com.figvam.energies_awoken.util.compound_energy;
+package com.figvam.energies_awoken.util;
 
+import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyBase;
 import net.minecraft.item.Item;
 
 import java.util.HashMap;
