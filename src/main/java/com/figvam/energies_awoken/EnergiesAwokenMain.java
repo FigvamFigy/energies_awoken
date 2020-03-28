@@ -6,6 +6,10 @@ import com.figvam.energies_awoken.registries.RegistryEventHandler;
 import com.figvam.energies_awoken.registries.TileEntityModList;
 import com.figvam.energies_awoken.util.AcceptedItemsInBreakdown;
 import com.figvam.energies_awoken.util.ItemCorrespondingCompoundEnergy;
+import com.figvam.energies_awoken.util.compound_energy.CompoundEnergy;
+import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyStorage;
+import com.figvam.energies_awoken.util.compound_energy.ICompoundEnergy;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -28,7 +32,11 @@ public class EnergiesAwokenMain {
     public void preInit(FMLPreInitializationEvent event){
         TileEntityModList tileEntityModList = new TileEntityModList();
         RegistryEventHandler.registerTileEntity();
+        ItemCorrespondingCompoundEnergy itemCorrespondingCompoundEnergy = new ItemCorrespondingCompoundEnergy();
+
         ItemCorrespondingCompoundEnergy.fillHashMapFromAcceptedItems(AcceptedItemsInBreakdown.ACCEPTED_ITEMS,AcceptedItemsInBreakdown.ITEM_COMPOUND_ENERGY);
+
+        //CapabilityManager.INSTANCE.register(ICompoundEnergy.class, new CompoundEnergyStorage(), CompoundEnergy::new);
     }
 
     @Mod.EventHandler
