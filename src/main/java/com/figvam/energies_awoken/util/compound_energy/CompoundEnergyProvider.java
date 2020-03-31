@@ -9,7 +9,7 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class CompoundManaProvider implements ICapabilitySerializable<NBTBase> {
+public class CompoundEnergyProvider implements ICapabilitySerializable<NBTBase> {
 
     @CapabilityInject(ICompoundEnergy.class)
     public static final Capability<ICompoundEnergy> COMPOUND_ENERGY_CAPABILITY = null;

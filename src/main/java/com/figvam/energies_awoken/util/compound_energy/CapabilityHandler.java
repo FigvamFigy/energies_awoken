@@ -16,7 +16,7 @@ public class CapabilityHandler {
     public void attaachCapability(AttachCapabilitiesEvent<TileEntity> event){
         if(!(event.getObject() instanceof TileEntityBreakdownMachine)) return;
 
-        event.addCapability(COMPOUND_CAP, new CompoundManaProvider());
+        event.addCapability(COMPOUND_CAP, new CompoundEnergyProvider());
 
     }
 }

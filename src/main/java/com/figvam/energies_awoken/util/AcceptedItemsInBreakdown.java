@@ -4,6 +4,13 @@ package com.figvam.energies_awoken.util;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
+
+/**
+ * This class is used to put vanilla minecraft items into a list
+ *
+ *
+ */
+
 public class AcceptedItemsInBreakdown {
 
 

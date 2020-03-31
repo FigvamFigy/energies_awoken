@@ -2,7 +2,7 @@ package com.figvam.energies_awoken.block.breakdown_machine;
 
 import com.figvam.energies_awoken.util.ItemCorrespondingCompoundEnergy;
 
-import com.figvam.energies_awoken.util.compound_energy.CompoundManaProvider;
+import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyProvider;
 import com.figvam.energies_awoken.util.compound_energy.ICompoundEnergy;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ import net.minecraftforge.items.ItemStackHandler;
 public class TileEntityBreakdownMachine extends TileEntity implements ITickable {
 
     private ItemStackHandler itemStackHandler = new ItemStackHandler(1);
-    private CompoundManaProvider compoundManaProvider = new CompoundManaProvider();
+    private CompoundEnergyProvider compoundEnergyProvider = new CompoundEnergyProvider();
 
 
 
@@ -119,7 +119,7 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
                 ItemStack newItemStack = itemStackHandler.getStackInSlot(0);
                 newItemStack.setCount(itemStackHandler.getStackInSlot(0).getCount() - 1);
 
-                ICompoundEnergy compoundEnergy = compoundManaProvider.getCapability(CompoundManaProvider.COMPOUND_ENERGY_CAPABILITY,null);
+                ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
                 compoundEnergy.fillCompoundEnergyFromItem(itemInput);
 
                 itemStackHandler.setStackInSlot(0,newItemStack);
