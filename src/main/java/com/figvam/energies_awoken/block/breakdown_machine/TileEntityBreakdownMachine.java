@@ -1,5 +1,6 @@
 package com.figvam.energies_awoken.block.breakdown_machine;
 
+import com.figvam.energies_awoken.util.EnumCompoundEnergy;
 import com.figvam.energies_awoken.util.ItemCorrespondingCompoundEnergy;
 
 import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyProvider;
@@ -18,19 +19,18 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityBreakdownMachine extends TileEntity implements ITickable {
 
-    private ItemStackHandler itemStackHandler = new ItemStackHandler(1);
-    private CompoundEnergyProvider compoundEnergyProvider = new CompoundEnergyProvider();
+    private ItemStackHandler itemStackHandler = new ItemStackHandler(2);
+    public CompoundEnergyProvider compoundEnergyProvider = new CompoundEnergyProvider();
 
 
 
-    int count;
+    public int count;
+    Item currentItem;
 
 
     int tick;
     int cookTime;
 
-
-    //private static TileEntityBreakdownMachine instance;
 
     public TileEntityBreakdownMachine(){
         super();
@@ -40,12 +40,6 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
     }
 
-//    public static TileEntityBreakdownMachine getInstance(){
-//        if(instance == null){
-//            instance = new TileEntityBreakdownMachine();
-//        }
-//        return instance;
-//    }
 
 
     public static TileEntityBreakdownMachine getTileEntity(IBlockAccess world, BlockPos pos){
@@ -116,6 +110,8 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         if(cookTime == 20){
             cookTime = 0;
             if(canProcessItem(itemInput)){
+                currentItem = itemInput;
+
                 ItemStack newItemStack = itemStackHandler.getStackInSlot(0);
                 newItemStack.setCount(itemStackHandler.getStackInSlot(0).getCount() - 1);
 
@@ -124,7 +120,7 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
                 itemStackHandler.setStackInSlot(0,newItemStack);
                 System.out.println("Proccessed " + cookTime);
-                System.out.println("Flora " + compoundEnergy.getFloraEnergy());
+                System.out.println("Flora " + compoundEnergy.getEnergy(EnumCompoundEnergy.FLORA));
 
                 markDirty();
             }

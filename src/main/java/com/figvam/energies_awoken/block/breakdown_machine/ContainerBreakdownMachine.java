@@ -11,19 +11,21 @@ import net.minecraftforge.items.SlotItemHandler;
 public class ContainerBreakdownMachine extends Container {
 
     private final int SLOT_INPUT = 0;
+    private final int SLOT_BUCKET = 1;
 
     public ContainerBreakdownMachine(InventoryPlayer inventoryPlayer, TileEntityBreakdownMachine tileEntityBreakdownMachine){
 
         IItemHandler handler = tileEntityBreakdownMachine.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,null);
 
-        createChestInventorySlots(handler);
+        createTileInventorySlots(handler);
         createRegularInventorySlots(inventoryPlayer);
     }
 
 
-    private void createChestInventorySlots(IItemHandler handler){
+    private void createTileInventorySlots(IItemHandler handler){
 
-        this.addSlotToContainer(new SlotItemHandler(handler,SLOT_INPUT,26,35));
+        this.addSlotToContainer(new SlotItemHandler(handler,SLOT_INPUT,12,13));
+        this.addSlotToContainer(new SlotItemHandler(handler,SLOT_BUCKET,12,55));
 
     }
 
