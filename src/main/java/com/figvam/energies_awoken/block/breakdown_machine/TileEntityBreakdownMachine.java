@@ -14,6 +14,7 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -50,6 +51,7 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 
+        compound.setTag("compound_energy",compoundEnergyProvider.serializeNBT());
         compound.setTag("inventory",itemStackHandler.serializeNBT());
         compound.setInteger("count",count);
         return super.writeToNBT(compound);
@@ -58,7 +60,8 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
     @Override
     public void readFromNBT(NBTTagCompound compound) {
-
+        System.out.println();
+        compoundEnergyProvider.deserializeNBT(compound.getTag("compound_energy"));
         itemStackHandler.deserializeNBT(compound.getCompoundTag("inventory"));
         count = compound.getInteger("count");
         super.readFromNBT(compound);
@@ -140,5 +143,13 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         }
 
         return false;
+    }
+
+    @Override
+    public NBTTagCompound getUpdateTag() {
+        NBTTagCompound tag = super.getUpdateTag();
+        this.writeToNBT(tag);
+        return tag;
+
     }
 }

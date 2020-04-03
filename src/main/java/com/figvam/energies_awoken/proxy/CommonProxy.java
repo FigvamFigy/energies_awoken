@@ -23,6 +23,7 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event){
         NetworkRegistry.INSTANCE.registerGuiHandler(EnergiesAwokenMain.instance,new GuiHandler());
         CapabilityManager.INSTANCE.register(ICompoundEnergy.class,new CompoundEnergyStorage(),CompoundEnergy::new);
+        //CapabilityManager.INSTANCE.register(ICompoundEnergy.class,new CompoundEnergyStorage(),CompoundEnergy.class);
     }
 
     public void postInit(FMLPostInitializationEvent event){

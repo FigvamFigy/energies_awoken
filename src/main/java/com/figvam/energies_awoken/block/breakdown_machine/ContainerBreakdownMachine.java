@@ -1,5 +1,6 @@
 package com.figvam.energies_awoken.block.breakdown_machine;
 
+import com.figvam.energies_awoken.util.SlotBucketInput;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -25,7 +26,7 @@ public class ContainerBreakdownMachine extends Container {
     private void createTileInventorySlots(IItemHandler handler){
 
         this.addSlotToContainer(new SlotItemHandler(handler,SLOT_INPUT,12,13));
-        this.addSlotToContainer(new SlotItemHandler(handler,SLOT_BUCKET,12,55));
+        this.addSlotToContainer(new SlotBucketInput(handler,SLOT_BUCKET,12,55));
 
     }
 

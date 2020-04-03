@@ -23,6 +23,7 @@ public class BlockBreakdownMachine extends Block {
     private BlockBreakdownMachine(){
         super(Material.ROCK);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setHardness(1f);
 
         setUnlocalizedName("breakdown_machine");
         setRegistryName("breakdown_machine");

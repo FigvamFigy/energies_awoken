@@ -12,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GuiBreakdownMachine extends GuiContainer {
 
@@ -67,8 +68,36 @@ public class GuiBreakdownMachine extends GuiContainer {
         ArrayList<EnumCompoundEnergy> arrayListExistingEnergy = tileEntityBreakdownMachine.compoundEnergyProvider.
                 getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getExistingCompoundLifeEnergy();
 
+        HashMap<EnumCompoundEnergy,String> hashMapEnergyString = new HashMap<>();
+
+
+
         if(!arrayListExistingEnergy.isEmpty()){
 
+            for(EnumCompoundEnergy energy: arrayListExistingEnergy){
+
+//                if(hashMapEnergyString.containsKey(energy)){
+//
+//                    String str = hashMapEnergyString.get(energy);
+//                    int strWidth = fontRenderer.getStringWidth(str);
+//                    int strX = (width / 2) - (strWidth / 2) + 15;
+//                    int strY = (height / 2) - (20 / 2) - 35;
+//
+//                    FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
+//                    fontRenderer.drawString(str, strX, strY, 4210752);
+//                }
+
+                String str = energy.toString() + "      " + tileEntityBreakdownMachine.compoundEnergyProvider.
+                        getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(energy);
+
+                int strWidth = fontRenderer.getStringWidth(str);
+                int strX = (width / 2) - (strWidth / 2) + 15;
+                int strY = (height / 2) - (20 / 2) - 35;
+
+                FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
+                fontRenderer.drawString(str, strX, strY, 4210752);
+
+            }
         }
 
 
