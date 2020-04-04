@@ -1,10 +1,12 @@
 package com.figvam.energies_awoken.block.breakdown_machine;
 
+import com.figvam.energies_awoken.registries.ItemModList;
 import com.figvam.energies_awoken.util.EnumCompoundEnergy;
 import com.figvam.energies_awoken.util.ItemCorrespondingCompoundEnergy;
 
 import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyProvider;
 import com.figvam.energies_awoken.util.compound_energy.ICompoundEnergy;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,6 +20,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
+import java.util.ArrayList;
+
 public class TileEntityBreakdownMachine extends TileEntity implements ITickable {
 
     private ItemStackHandler itemStackHandler = new ItemStackHandler(2);
@@ -29,14 +33,12 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     Item currentItem;
 
 
-    int tick;
     int cookTime;
 
 
     public TileEntityBreakdownMachine(){
         super();
         this.count = 0;
-        this.tick = 0;
         this.cookTime = 0;
 
     }
@@ -61,7 +63,7 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         System.out.println();
-        compoundEnergyProvider.deserializeNBT(compound.getTag("compound_energy"));
+        compoundEnergyProvider.deserializeNBT(compound.getCompoundTag("compound_energy"));
         itemStackHandler.deserializeNBT(compound.getCompoundTag("inventory"));
         count = compound.getInteger("count");
         super.readFromNBT(compound);
@@ -95,20 +97,11 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
     @Override
     public void update() {
-
-
         Item itemInput = itemStackHandler.getStackInSlot(0).getItem();
 
-        if(tick == 20){
-            tick = 0;
-        }
-        else {
-            tick++;
-        }
         if(canProcessItem(itemInput)){
             cookTime++;
         }
-
 
         if(cookTime == 20){
             cookTime = 0;
@@ -122,13 +115,34 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
                 compoundEnergy.fillCompoundEnergyFromItem(itemInput);
 
                 itemStackHandler.setStackInSlot(0,newItemStack);
-                System.out.println("Proccessed " + cookTime);
-                System.out.println("Flora " + compoundEnergy.getEnergy(EnumCompoundEnergy.FLORA));
 
                 markDirty();
+
+                System.out.println("FLORA: " + compoundEnergy.getEnergy(EnumCompoundEnergy.FLORA));
+                System.out.println("GRASS: " + compoundEnergy.getEnergy(EnumCompoundEnergy.GRASS));
             }
+        }
+
+
+        //if(!this.world.isRemote){
+
+        if(canFillBucket() && itemStackHandler.getStackInSlot(1).getItem().equals(Items.BUCKET)){
+
+            ItemStack bucketItemStack = itemStackHandler.getStackInSlot(1);
+            bucketItemStack.setCount(0);
+
+            int energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(EnumCompoundEnergy.FLORA);
+            compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).setEnergy(EnumCompoundEnergy.FLORA,energyInt - 5);
+            System.out.println("Remove bucket");
+
+            ItemStack floraBucket = new ItemStack(ItemModList.ITEMS[1]);
+
+            itemStackHandler.setStackInSlot(1,floraBucket);
 
         }
+        //}
+
+
 
 
     }
@@ -151,5 +165,23 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         this.writeToNBT(tag);
         return tag;
 
+    }
+
+
+    private boolean canFillBucket(){
+        ArrayList<EnumCompoundEnergy> arrayListExistingCompoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).
+                getExistingCompoundLifeEnergy();
+
+
+        for(EnumCompoundEnergy energy: arrayListExistingCompoundEnergy){
+            int energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(energy);
+            if(energyInt > 4){
+                return true;
+            }
+
+
+        }
+
+        return false;
     }
 }

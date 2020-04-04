@@ -12,6 +12,8 @@ public class ItemBucketOfFlora extends Item {
         super();
         setCreativeTab(CreativeTabs.MISC);
 
+        setMaxStackSize(1);
+
         setUnlocalizedName("bucket_of_flora");
         setRegistryName("bucket_of_flora");
 

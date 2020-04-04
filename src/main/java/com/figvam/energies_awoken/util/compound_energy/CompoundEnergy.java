@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class CompoundEnergy implements ICompoundEnergy {
 
     private int floraEnergy = 0;
+    private int grassEnergy = 0;
 
 
 
@@ -18,6 +19,7 @@ public class CompoundEnergy implements ICompoundEnergy {
 
         switch (energy){
             case FLORA: floraEnergy++;
+            case GRASS: grassEnergy++;
         }
     }
 
@@ -26,6 +28,7 @@ public class CompoundEnergy implements ICompoundEnergy {
 
         switch (energy){
             case FLORA: floraEnergy = value;
+            case GRASS: grassEnergy = value;
 
         }
     }
@@ -35,6 +38,7 @@ public class CompoundEnergy implements ICompoundEnergy {
 
         switch (energy){
             case FLORA: return floraEnergy;
+            case GRASS: return grassEnergy;
 
         }
 
@@ -47,6 +51,9 @@ public class CompoundEnergy implements ICompoundEnergy {
 
         if(floraEnergy > 0){
             arrayList.add(EnumCompoundEnergy.FLORA);
+        }
+        if(grassEnergy > 0){
+            arrayList.add(EnumCompoundEnergy.GRASS);
         }
 
         return arrayList;

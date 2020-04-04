@@ -1,5 +1,6 @@
 package com.figvam.energies_awoken.util;
 
+import com.figvam.energies_awoken.registries.ItemModList;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,7 @@ public class SlotBucketInput extends SlotItemHandler {
 
     @Override
     public boolean isItemValid(@Nonnull ItemStack stack) {
-        if(stack.getItem().equals(Items.BUCKET)){
+        if((stack.getItem().equals(Items.BUCKET) && stack.getCount() == 1) || (stack.getItem().equals(ItemModList.ITEMS[1]))){
             return true;
         }
 

@@ -29,6 +29,14 @@ public class GuiBreakdownMachine extends GuiContainer {
 
 
     @Override
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+        super.drawGuiContainerForegroundLayer(mouseX, mouseY);
+        drawName();
+        drawExistingCompoundEnergy();
+
+    }
+
+    @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         this.drawDefaultBackground();
         mc.getTextureManager().bindTexture(guiBackground);
@@ -41,13 +49,6 @@ public class GuiBreakdownMachine extends GuiContainer {
 
         this.drawTexturedModalRect(middleX,middleY,0,0,this.xSize,ySize);
 
-        drawName();
-        drawExistingCompoundEnergy();
-
-
-
-
-
 
     }
 
@@ -56,12 +57,8 @@ public class GuiBreakdownMachine extends GuiContainer {
         String str = "Breakdown Machine";
         int strWidth = fontRenderer.getStringWidth(str);
 
-        int strX = (width / 2) - (strWidth / 2);
-        int strY = (height / 2) - (20 / 2) - 70;
-
-
         FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
-        fontRenderer.drawString(str, strX, strY, 4210752);
+        fontRenderer.drawString(str, 35, 5, 4210752);
     }
 
     private void drawExistingCompoundEnergy(){
@@ -76,26 +73,13 @@ public class GuiBreakdownMachine extends GuiContainer {
 
             for(EnumCompoundEnergy energy: arrayListExistingEnergy){
 
-//                if(hashMapEnergyString.containsKey(energy)){
-//
-//                    String str = hashMapEnergyString.get(energy);
-//                    int strWidth = fontRenderer.getStringWidth(str);
-//                    int strX = (width / 2) - (strWidth / 2) + 15;
-//                    int strY = (height / 2) - (20 / 2) - 35;
-//
-//                    FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
-//                    fontRenderer.drawString(str, strX, strY, 4210752);
-//                }
-
                 String str = energy.toString() + "      " + tileEntityBreakdownMachine.compoundEnergyProvider.
                         getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(energy);
 
                 int strWidth = fontRenderer.getStringWidth(str);
-                int strX = (width / 2) - (strWidth / 2) + 15;
-                int strY = (height / 2) - (20 / 2) - 35;
 
                 FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
-                fontRenderer.drawString(str, strX, strY, 4210752);
+                fontRenderer.drawString(str, 80, 35, 4210752);
 
             }
         }
