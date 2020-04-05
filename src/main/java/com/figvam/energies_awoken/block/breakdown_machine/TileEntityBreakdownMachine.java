@@ -35,6 +35,8 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     Item currentItem;
 
 
+
+
     int cookTime;
 
 
@@ -57,6 +59,10 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        if(selectedCompoundEnergy != null){
+            compound.setString("selected_compound_energy",selectedCompoundEnergy.toString());
+        }
+
 
         compound.setTag("compound_energy",compoundEnergyProvider.serializeNBT());
         compound.setTag("inventory",itemStackHandler.serializeNBT());
@@ -67,7 +73,7 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
     @Override
     public void readFromNBT(NBTTagCompound compound) {
-        System.out.println();
+        selectedCompoundEnergy = EnumCompoundEnergy.valueOf(compound.getString("selected_compound_energy"));
         compoundEnergyProvider.deserializeNBT(compound.getCompoundTag("compound_energy"));
         itemStackHandler.deserializeNBT(compound.getCompoundTag("inventory"));
         count = compound.getInteger("count");
@@ -103,62 +109,33 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     @Override
     public void update() {
         Item itemInput = itemStackHandler.getStackInSlot(0).getItem();
+        currentItem = itemInput;
 
         if(canProcessItem(itemInput)){
             cookTime++;
         }
 
-        if(cookTime == 20){
+
+        if(cookTime == 20){//Converts item into compound life energy
             cookTime = 0;
-            if(canProcessItem(itemInput)){
-                currentItem = itemInput;
+            processItem();
 
-                ItemStack newItemStack = itemStackHandler.getStackInSlot(0);
-                newItemStack.setCount(itemStackHandler.getStackInSlot(0).getCount() - 1);
-
-                ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
-                compoundEnergy.fillCompoundEnergyFromItem(itemInput);
-
-                itemStackHandler.setStackInSlot(0,newItemStack);
-
-                markDirty();
+            if(arrayListExistingEnergy.size() == 1){
+                selectedCompoundEnergy = arrayListExistingEnergy.get(0);
             }
+            markDirty();
+
         }
 
-
-        //if(!this.world.isRemote){
-
-        if(canFillBucket() && itemStackHandler.getStackInSlot(1).getItem().equals(Items.BUCKET)){
-
-            ItemStack bucketItemStack = itemStackHandler.getStackInSlot(1);
-            bucketItemStack.setCount(0);
-
-            int energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(EnumCompoundEnergy.FLORA);
-            compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).setEnergy(EnumCompoundEnergy.FLORA,energyInt - 5);
-            System.out.println("Remove bucket");
-
-            ItemStack floraBucket = new ItemStack(ItemModList.ITEMS[1]);
-
-            itemStackHandler.setStackInSlot(1,floraBucket);
-
+        if(canFillBucket() && itemStackHandler.getStackInSlot(1).getItem().equals(Items.BUCKET)){//Fills bucket
+            fillBucket();
         }
 
 
         ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
         arrayListExistingEnergy = compoundEnergy.getExistingCompoundLifeEnergy();
 
-        if(arrayListExistingEnergy.size() == 1){
-            selectedCompoundEnergy = arrayListExistingEnergy.get(0);
-        }
-        else if(arrayListExistingEnergy.size() == 0){
-            selectedCompoundEnergy = null;
-        }
-
-
-
-
     }
-
 
 
     private boolean canProcessItem(Item itemInput){
@@ -181,18 +158,18 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
 
     private boolean canFillBucket(){
-        ArrayList<EnumCompoundEnergy> arrayListExistingCompoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).
-                getExistingCompoundLifeEnergy();
 
+        if(selectedCompoundEnergy != null){
+            ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
+            int energy = compoundEnergy.getEnergy(selectedCompoundEnergy);
 
-        for(EnumCompoundEnergy energy: arrayListExistingCompoundEnergy){
-            int energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(energy);
-            if(energyInt > 4){
+            if(energy >= 5){
                 return true;
             }
-
-
         }
+
+
+
 
         return false;
     }
@@ -221,9 +198,45 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
                 selectedCompoundEnergy = arrayListExistingEnergy.get(indexOfSelected + directionInt);
             }
 
-            System.out.println("Selected: " + selectedCompoundEnergy);
         }
+
+        System.out.println(selectedCompoundEnergy);
+        markDirty();
 
 
     }
+
+
+
+    private void processItem(){
+        if(canProcessItem(currentItem)){
+
+
+            ItemStack newItemStack = itemStackHandler.getStackInSlot(0);
+            newItemStack.setCount(itemStackHandler.getStackInSlot(0).getCount() - 1);
+
+            ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
+            compoundEnergy.fillCompoundEnergyFromItem(currentItem);
+
+            itemStackHandler.setStackInSlot(0,newItemStack);
+
+
+            markDirty();
+        }
+    }
+
+
+    private void fillBucket(){
+        ItemStack bucketItemStack = itemStackHandler.getStackInSlot(1);
+        bucketItemStack.setCount(0);//removes the empty bucket
+
+        int energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(selectedCompoundEnergy);
+        compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).setEnergy(selectedCompoundEnergy,energyInt - 5);
+
+
+        ItemStack newbucket = new ItemStack(ItemModList.ITEMS[1]);
+
+        itemStackHandler.setStackInSlot(1,newbucket);
+    }
+
 }

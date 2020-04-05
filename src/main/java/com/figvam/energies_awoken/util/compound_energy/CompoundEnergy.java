@@ -31,8 +31,12 @@ public class CompoundEnergy implements ICompoundEnergy {
     public void setEnergy(EnumCompoundEnergy energy, int value) {
 
         switch (energy){
-            case FLORA: floraEnergy = value;
-            case GRASS: grassEnergy = value;
+            case FLORA:
+                floraEnergy = value;
+                break;
+            case GRASS:
+                grassEnergy = value;
+                break;
 
         }
     }

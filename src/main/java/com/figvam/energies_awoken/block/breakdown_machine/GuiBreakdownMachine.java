@@ -128,7 +128,7 @@ public class GuiBreakdownMachine extends GuiContainer {
             int strWidth = fontRenderer.getStringWidth(str);
 
             FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
-            fontRenderer.drawString(str, 45, 50, 4210752);
+            fontRenderer.drawString(str, 45, 40, 4210752);
         }
 
 
