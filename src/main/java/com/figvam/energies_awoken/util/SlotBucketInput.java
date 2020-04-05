@@ -20,11 +20,19 @@ public class SlotBucketInput extends SlotItemHandler {
 
     @Override
     public boolean isItemValid(@Nonnull ItemStack stack) {
+        super.isItemValid(stack);
+
         if((stack.getItem().equals(Items.BUCKET) && stack.getCount() == 1) || (stack.getItem().equals(ItemModList.ITEMS[1]))){
             return true;
         }
 
         return false;
         //return super.isItemValid(stack);
+    }
+
+
+    @Override
+    public int getSlotStackLimit() {
+        return 1;
     }
 }

@@ -18,8 +18,12 @@ public class CompoundEnergy implements ICompoundEnergy {
         EnumCompoundEnergy energy = ItemCorrespondingCompoundEnergy.getCompoundEnergyFromItem(item);
 
         switch (energy){
-            case FLORA: floraEnergy++;
-            case GRASS: grassEnergy++;
+            case FLORA:
+                floraEnergy++;
+                break;
+            case GRASS:
+                grassEnergy++;
+                break;
         }
     }
 

@@ -28,6 +28,8 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     public CompoundEnergyProvider compoundEnergyProvider = new CompoundEnergyProvider();
 
 
+    public EnumCompoundEnergy selectedCompoundEnergy;
+    private ArrayList<EnumCompoundEnergy> arrayListExistingEnergy;
 
     public int count;
     Item currentItem;
@@ -40,6 +42,9 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         super();
         this.count = 0;
         this.cookTime = 0;
+        this.arrayListExistingEnergy = new ArrayList<>();
+
+
 
     }
 
@@ -117,9 +122,6 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
                 itemStackHandler.setStackInSlot(0,newItemStack);
 
                 markDirty();
-
-                System.out.println("FLORA: " + compoundEnergy.getEnergy(EnumCompoundEnergy.FLORA));
-                System.out.println("GRASS: " + compoundEnergy.getEnergy(EnumCompoundEnergy.GRASS));
             }
         }
 
@@ -140,7 +142,17 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
             itemStackHandler.setStackInSlot(1,floraBucket);
 
         }
-        //}
+
+
+        ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
+        arrayListExistingEnergy = compoundEnergy.getExistingCompoundLifeEnergy();
+
+        if(arrayListExistingEnergy.size() == 1){
+            selectedCompoundEnergy = arrayListExistingEnergy.get(0);
+        }
+        else if(arrayListExistingEnergy.size() == 0){
+            selectedCompoundEnergy = null;
+        }
 
 
 
@@ -183,5 +195,35 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         }
 
         return false;
+    }
+
+    public void changeSelectedCompoundEnergy(String direction){
+
+        if(!(selectedCompoundEnergy == null)){
+            int directionInt;//positive = right, negative = left
+
+            if(direction.equals("left")){
+                directionInt = -1;
+            }
+            else{
+                directionInt = 1;
+            }
+
+            int indexOfSelected = arrayListExistingEnergy.indexOf(selectedCompoundEnergy);
+
+            if((indexOfSelected + directionInt) == -1){//We go left and wrap to the very right
+                selectedCompoundEnergy = arrayListExistingEnergy.get(arrayListExistingEnergy.size() - 1);
+            }
+            else if((indexOfSelected + directionInt) == arrayListExistingEnergy.size()){//We go right and wrap to the very left
+                selectedCompoundEnergy = arrayListExistingEnergy.get(0);
+            }
+            else{
+                selectedCompoundEnergy = arrayListExistingEnergy.get(indexOfSelected + directionInt);
+            }
+
+            System.out.println("Selected: " + selectedCompoundEnergy);
+        }
+
+
     }
 }
