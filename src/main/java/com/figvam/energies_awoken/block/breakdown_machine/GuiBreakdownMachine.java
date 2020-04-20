@@ -40,6 +40,16 @@ public class GuiBreakdownMachine extends GuiContainer {
         this.buttonList.add(new GuiButton( RIGHT_BUTTON_ID, guiLeft + 65, guiTop + 54, 20, 20, ">"));
 
     }
+    /**
+     * Draws the screen and all the components in it.
+     */
+    public void drawScreen(int mouseX, int mouseY, float partialTicks)
+    {
+        this.drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        super.renderHoveredToolTip(mouseX,mouseY);
+
+    }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
@@ -47,6 +57,8 @@ public class GuiBreakdownMachine extends GuiContainer {
         drawName();
         drawExistingCompoundEnergy();
         drawSelectedCompoundEnergy();
+
+
 
 
     }
@@ -133,6 +145,7 @@ public class GuiBreakdownMachine extends GuiContainer {
 
 
     }
+
 
 
 }

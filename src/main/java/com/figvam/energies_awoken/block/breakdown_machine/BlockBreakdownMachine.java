@@ -43,15 +43,12 @@ public class BlockBreakdownMachine extends Block {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if(!worldIn.isRemote){
             TileEntityBreakdownMachine tile = TileEntityBreakdownMachine.getTileEntity(worldIn,pos);
-            tile.incrementCount();
-            playerIn.sendMessage(new TextComponentString("Count: " + tile.count));
+            //tile.incrementCount();
+            //playerIn.sendMessage(new TextComponentString("Count: " + tile.count));
 
             playerIn.openGui(EnergiesAwokenMain.instance, GuiIDList.BREAKDOWN_MACHINE_ID,worldIn,pos.getX(),pos.getY(),pos.getZ());
 
-
         }
-
-
         return true;
     }
 
