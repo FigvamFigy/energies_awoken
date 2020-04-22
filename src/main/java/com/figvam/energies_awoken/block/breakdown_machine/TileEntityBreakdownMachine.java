@@ -32,12 +32,10 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     private ArrayList<EnumCompoundEnergy> arrayListExistingEnergy;
 
     public int count;
-    Item currentItem;
-
-
-
+    Item currentInputItem;
 
     int cookTime;
+    final int TOTAL_COOK_TIME = 10;
 
 
     public TileEntityBreakdownMachine(){
@@ -45,8 +43,6 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         this.count = 0;
         this.cookTime = 0;
         this.arrayListExistingEnergy = new ArrayList<>();
-
-
 
     }
 
@@ -62,7 +58,6 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         if(selectedCompoundEnergy != null){
             compound.setString("selected_compound_energy",selectedCompoundEnergy.toString());
         }
-
 
         compound.setTag("compound_energy",compoundEnergyProvider.serializeNBT());
         compound.setTag("inventory",itemStackHandler.serializeNBT());
@@ -109,14 +104,17 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
     @Override
     public void update() {
         Item itemInput = itemStackHandler.getStackInSlot(0).getItem();
-        currentItem = itemInput;
+        currentInputItem = itemInput;
 
         if(canProcessItem(itemInput)){
             cookTime++;
         }
+        else{
+            cookTime = 0;
+        }
 
 
-        if(cookTime == 20){//Converts item into compound life energy
+        if(cookTime == TOTAL_COOK_TIME){//Converts item into compound life energy
             cookTime = 0;
             processItem();
 
@@ -129,6 +127,7 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
         if(canFillBucket() && itemStackHandler.getStackInSlot(1).getItem().equals(Items.BUCKET)){//Fills bucket
             fillBucket();
+            markDirty();
         }
 
 
@@ -209,14 +208,13 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
 
 
     private void processItem(){
-        if(canProcessItem(currentItem)){
-
+        if(canProcessItem(currentInputItem)){
 
             ItemStack newItemStack = itemStackHandler.getStackInSlot(0);
-            newItemStack.setCount(itemStackHandler.getStackInSlot(0).getCount() - 1);
+            newItemStack.setCount(itemStackHandler.getStackInSlot(0).getCount() - 1);//Removes one item from the input
 
             ICompoundEnergy compoundEnergy = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null);
-            compoundEnergy.fillCompoundEnergyFromItem(currentItem);
+            compoundEnergy.fillCompoundEnergyFromItem(currentInputItem);
 
             itemStackHandler.setStackInSlot(0,newItemStack);
 
@@ -233,8 +231,34 @@ public class TileEntityBreakdownMachine extends TileEntity implements ITickable 
         int energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(selectedCompoundEnergy);
         compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).setEnergy(selectedCompoundEnergy,energyInt - 5);
 
+        energyInt = compoundEnergyProvider.getCapability(CompoundEnergyProvider.COMPOUND_ENERGY_CAPABILITY,null).getEnergy(selectedCompoundEnergy);//Check the new updated energy
 
-        ItemStack newbucket = new ItemStack(ItemModList.ITEMS[1]);
+        //ItemStack newbucket = new ItemStack(ItemModList.ITEMS[1]);
+
+        if(energyInt == 0){
+            arrayListExistingEnergy.remove(selectedCompoundEnergy);
+        }
+
+        if(arrayListExistingEnergy.size() == 1){
+            selectedCompoundEnergy = arrayListExistingEnergy.get(0);
+        }
+        else{
+            selectedCompoundEnergy = arrayListExistingEnergy.get(arrayListExistingEnergy.size() - 1);
+        }
+
+
+
+        ItemStack newbucket;
+
+        switch (selectedCompoundEnergy){
+            case FLORA:
+                newbucket = new ItemStack(ItemModList.ITEMS[1]);
+                break;
+            case GRASS:
+                newbucket = new ItemStack(ItemModList.ITEMS[1]);
+                break;
+            default: newbucket = null;
+        }
 
         itemStackHandler.setStackInSlot(1,newbucket);
     }

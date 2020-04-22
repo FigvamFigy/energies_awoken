@@ -2,12 +2,10 @@ package com.figvam.energies_awoken.block.breakdown_machine;
 
 import com.figvam.energies_awoken.ModDetailReference;
 import com.figvam.energies_awoken.util.EnumCompoundEnergy;
-import com.figvam.energies_awoken.util.ItemCorrespondingCompoundEnergy;
 import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyProvider;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -16,7 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GuiBreakdownMachine extends GuiContainer {
-
 
 
     private final int LEFT_BUTTON_ID = 0;
@@ -71,21 +68,23 @@ public class GuiBreakdownMachine extends GuiContainer {
         int middleX = (width / 2) - (xSize / 2);
         int middleY = (height / 2) - (ySize / 2);
 
-        //xSize = 176;
-        //ySize = 166;
-
         this.drawTexturedModalRect(middleX,middleY,0,0,this.xSize,ySize);
 
+        int width = this.getCookProgressScaled(25);
+        this.drawTexturedModalRect(middleX + 37, middleY + 13, 176, 14, width, 16);
+    }
 
+    private int getCookProgressScaled(int pixels)
+    {
+        double cookTimePerPixel = (double)tileEntityBreakdownMachine.TOTAL_COOK_TIME / pixels;
+        double totalPixels = (double)tileEntityBreakdownMachine.cookTime / cookTimePerPixel;
 
-
+        return (int)totalPixels;
     }
 
 
     private void drawName(){
         String str = "Breakdown Machine";
-        int strWidth = fontRenderer.getStringWidth(str);
-
         FontRenderer fontRenderer = FMLClientHandler.instance().getClient().fontRenderer;
         fontRenderer.drawString(str, 35, 5, 4210752);
     }
