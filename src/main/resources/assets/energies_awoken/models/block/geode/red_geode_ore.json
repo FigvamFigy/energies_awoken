@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "energies_awoken:blocks/block_geode/block_red_geode",
+    "up": "energies_awoken:blocks/block_geode/block_red_geode",
+    "north": "energies_awoken:blocks/block_geode/block_red_geode",
+    "east": "energies_awoken:blocks/block_geode/block_red_geode",
+    "south": "energies_awoken:blocks/block_geode/block_red_geode",
+    "west": "energies_awoken:blocks/block_geode/block_red_geode",
+    "particle": "energies_awoken:blocks/block_geode/block_red_geode"
+  }
+
+}
