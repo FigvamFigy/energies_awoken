@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "energies_awoken:items/base_life_energy/grounding_life_energy"
+  }
+}
