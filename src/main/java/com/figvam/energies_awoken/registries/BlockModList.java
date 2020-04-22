@@ -1,6 +1,7 @@
 package com.figvam.energies_awoken.registries;
 
 
+import com.figvam.energies_awoken.block.block_geode.BlockBlueGeodeOre;
 import com.figvam.energies_awoken.block.breakdown_machine.BlockBreakdownMachine;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.Mod;
@@ -10,7 +11,8 @@ public class BlockModList {
 
 
     public static final Block[] BLOCKS = {
-            BlockBreakdownMachine.getInstance()
+            BlockBreakdownMachine.getInstance(),//Break down machine
+            BlockBlueGeodeOre.getInstance()//Blue geode
     };
 
 

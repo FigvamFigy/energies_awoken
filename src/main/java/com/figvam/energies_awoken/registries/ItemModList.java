@@ -5,6 +5,7 @@ import com.figvam.energies_awoken.item.item.geode.ItemBlueGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemPurpleGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemRedGeode;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreadownMachine;
+import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockBlueGeodeOre;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 
@@ -17,7 +18,8 @@ public class ItemModList {
             ItemBucketOfFlora.getInstance(),//Bucket of flora
             ItemBlueGeode.getInstance(),//Blue geode
             ItemPurpleGeode.getInstance(),//Purple geode
-            ItemRedGeode.getInstance()//Red geode
+            ItemRedGeode.getInstance(),//Red geode
+            ItemBlockBlueGeodeOre.getInstance()
     };
 
 }
