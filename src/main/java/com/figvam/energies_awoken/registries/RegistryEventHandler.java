@@ -1,6 +1,7 @@
 package com.figvam.energies_awoken.registries;
 
 import com.figvam.energies_awoken.ModDetailReference;
+import com.figvam.energies_awoken.block.breakdown_machine.TileEntityBreakdownMachine;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -44,11 +45,11 @@ public class RegistryEventHandler {
     //TILE ENTITY REGISTER Registers tile entities into the game
     public static void registerTileEntity(){
 
-        for(int index = 0; index < TileEntityModList.TILE_ENTITIES.length; index++){
-            String resourceLocationString = ModDetailReference.MOD_ID + ":tile_entity_" + BlockModList.BLOCKS[index].getRegistryName();
+        for(int index = 0; index < TileEntityModList.TILE_ENTITIES.size(); index++){
+            String resourceLocationString = ModDetailReference.MOD_ID + ":tile_entity_" + TileEntityModList.BLOCKS.get(index).getRegistryName();
             ResourceLocation key = new ResourceLocation(resourceLocationString);
 
-            GameRegistry.registerTileEntity(TileEntityModList.TILE_ENTITIES[index].getClass(),key);
+            GameRegistry.registerTileEntity(TileEntityModList.TILE_ENTITIES.get(index),key);
 
         }
 

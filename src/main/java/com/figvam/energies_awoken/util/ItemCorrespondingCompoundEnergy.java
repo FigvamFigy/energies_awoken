@@ -13,21 +13,41 @@ import java.util.HashMap;
 public class ItemCorrespondingCompoundEnergy {
 
 
-    private static HashMap<Item,CompoundEnergyBase> hashMapItemToCompoundEnergy;
+    private static HashMap<Item,EnumCompoundEnergy> hashMapItemToCompoundEnergy;
 
 
     public ItemCorrespondingCompoundEnergy(){
         hashMapItemToCompoundEnergy = new HashMap<>();
     }
 
-    public static void addItemToHashMap(Item item, CompoundEnergyBase compoundEnergy){
+    public static void addItemToHashMap(Item item, EnumCompoundEnergy compoundEnergy){
         hashMapItemToCompoundEnergy.put(item,compoundEnergy);
     }
 
 
-    public static CompoundEnergyBase getItemCompoundEnergy(Item item){
+    public static EnumCompoundEnergy getCompoundEnergyFromItem(Item item){
         return hashMapItemToCompoundEnergy.get(item);
     }
+
+
+    public static void fillHashMapFromAcceptedItems(Item[] acceptedItemsArray, EnumCompoundEnergy[] compoundEnergyArray){
+        if(acceptedItemsArray.length != compoundEnergyArray.length){
+            throw new IllegalArgumentException("Item[] length is not the same size as CompoundEnergyBase[] in fillHashMapFromAcceptedItems in ItemCorrespondingCompoundEnergy");
+        }
+
+        for(int index = 0; index < acceptedItemsArray.length; index++){
+            hashMapItemToCompoundEnergy.put(acceptedItemsArray[index],compoundEnergyArray[index]);
+        }
+    }
+
+
+    public static boolean isItemInHashMap(Item item){
+        return hashMapItemToCompoundEnergy.containsKey(item);
+    }
+
+
+
+
 
 
 
