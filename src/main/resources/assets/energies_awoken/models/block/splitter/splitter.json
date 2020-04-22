@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "energies_awoken:blocks/splitter/splitter",
+    "up": "energies_awoken:blocks/splitter/splitter",
+    "north": "energies_awoken:blocks/splitter/splitter",
+    "east": "energies_awoken:blocks/splitter/splitter",
+    "south": "energies_awoken:blocks/splitter/splitter",
+    "west": "energies_awoken:blocks/splitter/splitter",
+    "particle": "energies_awoken:blocks/splitter/splitter"
+  }
+
+}
