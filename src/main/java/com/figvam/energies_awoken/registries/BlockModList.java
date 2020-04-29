@@ -5,6 +5,7 @@ import com.figvam.energies_awoken.block.block_geode.BlockBlueGeodeOre;
 import com.figvam.energies_awoken.block.block_geode.BlockPurpleGeodeOre;
 import com.figvam.energies_awoken.block.block_geode.BlockRedGeodeOre;
 import com.figvam.energies_awoken.block.breakdown_machine.BlockBreakdownMachine;
+import com.figvam.energies_awoken.block.splitter.BlockSplitter;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.Mod;
 
@@ -16,7 +17,8 @@ public class BlockModList {
             BlockBreakdownMachine.getInstance(),//Break down machine
             BlockBlueGeodeOre.getInstance(),//Blue geode
             BlockPurpleGeodeOre.getInstance(),//Purple geode
-            BlockRedGeodeOre.getInstance()
+            BlockRedGeodeOre.getInstance(),
+            BlockSplitter.getInstance()
     };
 
 
