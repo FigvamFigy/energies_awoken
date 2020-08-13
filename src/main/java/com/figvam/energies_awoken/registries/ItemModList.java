@@ -6,6 +6,7 @@ import com.figvam.energies_awoken.item.item.geode.ItemPurpleGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemRedGeode;
 import com.figvam.energies_awoken.item.item.solid_base_life_energy.ItemGroundingLifeEnergy;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreadownMachine;
+import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockBlueGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockPurpleGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockRedGeodeOre;
@@ -19,7 +20,7 @@ public class ItemModList {
 
 
     public static final Item[] ITEMS = {
-            ItemBlockBreadownMachine.getInstance(),//Break down machine
+            //ItemBlockBreadownMachine.getInstance(),//Break down machine
             ItemBucketOfFlora.getInstance(),//Bucket of flora
             ItemBlueGeode.getInstance(),//Blue geode
             ItemPurpleGeode.getInstance(),//Purple geode
@@ -28,7 +29,8 @@ public class ItemModList {
             ItemBlockPurpleGeodeOre.getInstance(),
             ItemBlockRedGeodeOre.getInstance(),
             ItemGroundingLifeEnergy.getInstance(),
-            ItemBlockSplitter.getInstance()
+            ItemBlockSplitter.getInstance(),
+            ItemBlockBreakdownMachineLevelOne.getInstance()
     };
 
 }
