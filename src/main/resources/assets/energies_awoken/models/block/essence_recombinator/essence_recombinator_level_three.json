@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three",
+    "up": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three",
+    "north": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three",
+    "east": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three",
+    "south": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three",
+    "west": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three",
+    "particle": "energies_awoken:blocks/essence_recombinator/essence_recombinator_level_three"
+  }
+
+}
