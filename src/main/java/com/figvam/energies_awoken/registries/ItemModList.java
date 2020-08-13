@@ -5,16 +5,14 @@ import com.figvam.energies_awoken.item.item.geode.ItemBlueGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemPurpleGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemRedGeode;
 import com.figvam.energies_awoken.item.item.solid_base_life_energy.ItemGroundingLifeEnergy;
-import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreadownMachine;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelTwo;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockBlueGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockPurpleGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockRedGeodeOre;
-import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitter;
+import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelOne;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSpade;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
@@ -31,7 +29,7 @@ public class ItemModList {
             ItemBlockPurpleGeodeOre.getInstance(),
             ItemBlockRedGeodeOre.getInstance(),
             ItemGroundingLifeEnergy.getInstance(),
-            ItemBlockSplitter.getInstance(),
+            ItemBlockSplitterLevelOne.getInstance(),
             ItemBlockBreakdownMachineLevelOne.getInstance(),
             ItemBlockBreakdownMachineLevelTwo.getInstance(),
             ItemBlockBreakdownMachineLevelThree.getInstance()

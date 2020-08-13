@@ -4,24 +4,24 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockSplitter extends Block {
+public class BlockSplitterLevelOne extends Block {
 
 
-    private static BlockSplitter instance = null;
+    private static BlockSplitterLevelOne instance = null;
 
-    private BlockSplitter(){
+    private BlockSplitterLevelOne(){
         super(Material.ROCK);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         setHardness(2f);
 
-        setUnlocalizedName("splitter");
-        setRegistryName("splitter");
+        setUnlocalizedName("splitter_level_one");
+        setRegistryName("splitter_level_one");
     }
 
 
-    public static BlockSplitter getInstance(){
+    public static BlockSplitterLevelOne getInstance(){
         if(instance == null){
-            instance = new BlockSplitter();
+            instance = new BlockSplitterLevelOne();
         }
         return instance;
     }
