@@ -7,6 +7,7 @@ import com.figvam.energies_awoken.block.block_geode.BlockRedGeodeOre;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.BlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.BlockBreakdownMachineLevelTwo;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.BlockBreakdownMachineLevelThree;
+import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_one.BlockEssenceRecombinatorLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.BlockSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_three.BlockSplitterLevelThree;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.BlockSplitterLevelTwo;
@@ -27,7 +28,8 @@ public class BlockModList {
             BlockBreakdownMachineLevelTwo.getInstance(),
             BlockBreakdownMachineLevelThree.getInstance(),
             BlockSplitterLevelTwo.getInstance(),
-            BlockSplitterLevelThree.getInstance()
+            BlockSplitterLevelThree.getInstance(),
+            BlockEssenceRecombinatorLevelOne.getInstance()
     };
 
 

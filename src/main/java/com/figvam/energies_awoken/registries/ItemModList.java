@@ -8,6 +8,7 @@ import com.figvam.energies_awoken.item.item.solid_base_life_energy.ItemGrounding
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelTwo;
+import com.figvam.energies_awoken.item.itemBlock.essence_recombinator.ItemBlockEssenceRecombinatorLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockBlueGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockPurpleGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockRedGeodeOre;
@@ -15,6 +16,7 @@ import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevel
 import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelTwo;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
@@ -36,7 +38,8 @@ public class ItemModList {
             ItemBlockBreakdownMachineLevelTwo.getInstance(),
             ItemBlockBreakdownMachineLevelThree.getInstance(),
             ItemBlockSplitterLevelTwo.getInstance(),
-            ItemBlockSplitterLevelThree.getInstance()
+            ItemBlockSplitterLevelThree.getInstance(),
+            ItemBlockEssenceRecombinatorLevelOne.getInstance()
     };
 
 }
