@@ -7,6 +7,7 @@ import com.figvam.energies_awoken.block.block_geode.BlockRedGeodeOre;
 import com.figvam.energies_awoken.block.breakdown_machine.BlockBreakdownMachine;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.BlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.BlockBreakdownMachineLevelTwo;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.BlockBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.block.splitter.BlockSplitter;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.Mod;
@@ -22,7 +23,8 @@ public class BlockModList {
             BlockRedGeodeOre.getInstance(),
             BlockSplitter.getInstance(),
             BlockBreakdownMachineLevelOne.getInstance(),
-            BlockBreakdownMachineLevelTwo.getInstance()
+            BlockBreakdownMachineLevelTwo.getInstance(),
+            BlockBreakdownMachineLevelThree.getInstance()
     };
 
 
