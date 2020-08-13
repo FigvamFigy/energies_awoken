@@ -12,6 +12,7 @@ import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockBlueGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockPurpleGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockRedGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelOne;
+import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelTwo;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
@@ -34,7 +35,8 @@ public class ItemModList {
             ItemBlockBreakdownMachineLevelOne.getInstance(),
             ItemBlockBreakdownMachineLevelTwo.getInstance(),
             ItemBlockBreakdownMachineLevelThree.getInstance(),
-            ItemBlockSplitterLevelTwo.getInstance()
+            ItemBlockSplitterLevelTwo.getInstance(),
+            ItemBlockSplitterLevelThree.getInstance()
     };
 
 }
