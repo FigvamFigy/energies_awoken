@@ -1,4 +1,4 @@
-package com.figvam.energies_awoken.block.splitter;
+package com.figvam.energies_awoken.block.splitter.splitter_level_one;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

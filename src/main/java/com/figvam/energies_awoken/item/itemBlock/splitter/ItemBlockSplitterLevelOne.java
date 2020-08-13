@@ -1,6 +1,6 @@
 package com.figvam.energies_awoken.item.itemBlock.splitter;
 
-import com.figvam.energies_awoken.block.splitter.BlockSplitterLevelOne;
+import com.figvam.energies_awoken.block.splitter.splitter_level_one.BlockSplitterLevelOne;
 import net.minecraft.item.ItemBlock;
 
 public class ItemBlockSplitterLevelOne extends ItemBlock {
