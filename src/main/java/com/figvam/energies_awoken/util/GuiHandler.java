@@ -9,6 +9,9 @@ import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_leve
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.ContainerBreakdownMachineLevelTwo;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.GuiBreakdownMachineLevelTwo;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.TileEntityBreakdownMachineLevelTwo;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.ContainerBreakdownMachineLevelThree;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.GuiBreakdownMachineLevelThree;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.TileEntityBreakdownMachineLevelThree;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -33,9 +36,14 @@ public class GuiHandler implements IGuiHandler {
 
         if(!world.isRemote){
             switch (ID){
-                case GuiIDList.BREAKDOWN_MACHINE_ID: return new ContainerBreakdownMachine(player.inventory,(TileEntityBreakdownMachine)world.getTileEntity(new BlockPos(x,y,z)));
-                case GuiIDList.BREAKDOWN_MACHINE_LEVEL_ONE_ID: return new ContainerBreakdownMachineLevelOne(player.inventory,(TileEntityBreakdownMachineLevelOne)world.getTileEntity(new BlockPos(x,y,z)));
-                case GuiIDList.BREAKDOWN_MACHINE_LEVEL_TWO_ID: return new ContainerBreakdownMachineLevelTwo(player.inventory,(TileEntityBreakdownMachineLevelTwo)world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.BREAKDOWN_MACHINE_ID: return new ContainerBreakdownMachine(player.inventory,
+                        (TileEntityBreakdownMachine)world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.BREAKDOWN_MACHINE_LEVEL_ONE_ID: return new ContainerBreakdownMachineLevelOne(player.inventory,
+                        (TileEntityBreakdownMachineLevelOne)world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.BREAKDOWN_MACHINE_LEVEL_TWO_ID: return new ContainerBreakdownMachineLevelTwo(player.inventory,
+                        (TileEntityBreakdownMachineLevelTwo)world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.BREAKDOWN_MACHINE_LEVEL_THREE_ID: return new ContainerBreakdownMachineLevelThree(player.inventory,
+                        (TileEntityBreakdownMachineLevelThree)world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -48,9 +56,14 @@ public class GuiHandler implements IGuiHandler {
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 
         switch (ID){
-            case GuiIDList.BREAKDOWN_MACHINE_ID: return new GuiBreakdownMachine(player.inventory,(TileEntityBreakdownMachine)world.getTileEntity(new BlockPos(x,y,z)));
-            case GuiIDList.BREAKDOWN_MACHINE_LEVEL_ONE_ID: return new GuiBreakdownMachineLevelOne(player.inventory,(TileEntityBreakdownMachineLevelOne)world.getTileEntity(new BlockPos(x,y,z)));
-            case GuiIDList.BREAKDOWN_MACHINE_LEVEL_TWO_ID:  return new GuiBreakdownMachineLevelTwo(player.inventory,(TileEntityBreakdownMachineLevelTwo)world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.BREAKDOWN_MACHINE_ID: return new GuiBreakdownMachine(player.inventory,
+                    (TileEntityBreakdownMachine)world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.BREAKDOWN_MACHINE_LEVEL_ONE_ID: return new GuiBreakdownMachineLevelOne(player.inventory,
+                    (TileEntityBreakdownMachineLevelOne)world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.BREAKDOWN_MACHINE_LEVEL_TWO_ID:  return new GuiBreakdownMachineLevelTwo(player.inventory,
+                    (TileEntityBreakdownMachineLevelTwo)world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.BREAKDOWN_MACHINE_LEVEL_THREE_ID: return new GuiBreakdownMachineLevelThree(player.inventory,
+                    (TileEntityBreakdownMachineLevelThree)world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;

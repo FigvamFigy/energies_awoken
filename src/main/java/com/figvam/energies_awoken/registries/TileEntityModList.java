@@ -6,6 +6,8 @@ import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_leve
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.TileEntityBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.BlockBreakdownMachineLevelTwo;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.TileEntityBreakdownMachineLevelTwo;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.BlockBreakdownMachineLevelThree;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.TileEntityBreakdownMachineLevelThree;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 
@@ -28,6 +30,7 @@ public class TileEntityModList {
         //TILE_ENTITIES.add(TileEntityBreakdownMachine.class);
         TILE_ENTITIES.add(TileEntityBreakdownMachineLevelOne.class);
         TILE_ENTITIES.add(TileEntityBreakdownMachineLevelTwo.class);
+        TILE_ENTITIES.add(TileEntityBreakdownMachineLevelThree.class);
 
     }
 
@@ -35,6 +38,7 @@ public class TileEntityModList {
         //BLOCKS.add(BlockBreakdownMachine.getInstance());
         BLOCKS.add(BlockBreakdownMachineLevelOne.getInstance());
         BLOCKS.add(BlockBreakdownMachineLevelTwo.getInstance());
+        BLOCKS.add(BlockBreakdownMachineLevelThree.getInstance());
     }
 
 
