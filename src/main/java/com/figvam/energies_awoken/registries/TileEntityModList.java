@@ -2,6 +2,8 @@ package com.figvam.energies_awoken.registries;
 
 import com.figvam.energies_awoken.block.breakdown_machine.BlockBreakdownMachine;
 import com.figvam.energies_awoken.block.breakdown_machine.TileEntityBreakdownMachine;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.BlockBreakdownMachineLevelOne;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.TileEntityBreakdownMachineLevelOne;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 
@@ -21,13 +23,14 @@ public class TileEntityModList {
     }
 
     private static void fillTileEntities(){
-        TILE_ENTITIES.add(TileEntityBreakdownMachine.class);
-
+        //TILE_ENTITIES.add(TileEntityBreakdownMachine.class);
+        TILE_ENTITIES.add(TileEntityBreakdownMachineLevelOne.class);
 
     }
 
     private static void fillBlocks(){
-        BLOCKS.add(BlockBreakdownMachine.getInstance());
+        //BLOCKS.add(BlockBreakdownMachine.getInstance());
+        BLOCKS.add(BlockBreakdownMachineLevelOne.getInstance());
     }
 
 

@@ -3,6 +3,9 @@ package com.figvam.energies_awoken.util;
 import com.figvam.energies_awoken.block.breakdown_machine.ContainerBreakdownMachine;
 import com.figvam.energies_awoken.block.breakdown_machine.GuiBreakdownMachine;
 import com.figvam.energies_awoken.block.breakdown_machine.TileEntityBreakdownMachine;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.ContainerBreakdownMachineLevelOne;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.GuiBreakdownMachineLevelOne;
+import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.TileEntityBreakdownMachineLevelOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -28,6 +31,7 @@ public class GuiHandler implements IGuiHandler {
         if(!world.isRemote){
             switch (ID){
                 case GuiIDList.BREAKDOWN_MACHINE_ID: return new ContainerBreakdownMachine(player.inventory,(TileEntityBreakdownMachine)world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.BREAKDOWN_MACHINE_LEVEL_ONE_ID: return new ContainerBreakdownMachineLevelOne(player.inventory,(TileEntityBreakdownMachineLevelOne)world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -41,6 +45,7 @@ public class GuiHandler implements IGuiHandler {
 
         switch (ID){
             case GuiIDList.BREAKDOWN_MACHINE_ID: return new GuiBreakdownMachine(player.inventory,(TileEntityBreakdownMachine)world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.BREAKDOWN_MACHINE_LEVEL_ONE_ID: return new GuiBreakdownMachineLevelOne(player.inventory,(TileEntityBreakdownMachineLevelOne)world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;

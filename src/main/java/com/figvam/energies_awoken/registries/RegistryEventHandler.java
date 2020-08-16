@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.lwjgl.Sys;
 
 @Mod.EventBusSubscriber
 public class RegistryEventHandler {
@@ -46,7 +47,7 @@ public class RegistryEventHandler {
     public static void registerTileEntity(){
 
         for(int index = 0; index < TileEntityModList.TILE_ENTITIES.size(); index++){
-            String resourceLocationString = ModDetailReference.MOD_ID + ":tile_entity_" + TileEntityModList.BLOCKS.get(index).getRegistryName();
+            String resourceLocationString = ModDetailReference.MOD_ID + ":tile_entity_" + TileEntityModList.BLOCKS.get(index).getUnlocalizedName();
             ResourceLocation key = new ResourceLocation(resourceLocationString);
 
             GameRegistry.registerTileEntity(TileEntityModList.TILE_ENTITIES.get(index),key);
