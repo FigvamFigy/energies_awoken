@@ -10,7 +10,6 @@ public class TileEntityBreakdownMachineLevelOne extends TileEntity {
 
 
     public TileEntityBreakdownMachineLevelOne() {
-        System.out.println("Tile entity created");
 
 
     }
