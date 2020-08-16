@@ -12,6 +12,9 @@ import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_leve
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.ContainerBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.GuiBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_three.TileEntityBreakdownMachineLevelThree;
+import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_one.ContainerEssenceRecombinatorLevelOne;
+import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_one.GuiEssenceRecombinatorLevelOne;
+import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_one.TileEntityEssenceRecombinatorLevelOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -44,6 +47,8 @@ public class GuiHandler implements IGuiHandler {
                         (TileEntityBreakdownMachineLevelTwo)world.getTileEntity(new BlockPos(x,y,z)));
                 case GuiIDList.BREAKDOWN_MACHINE_LEVEL_THREE_ID: return new ContainerBreakdownMachineLevelThree(player.inventory,
                         (TileEntityBreakdownMachineLevelThree)world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.ESSENCE_RECOMBINATOR_LEVEL_ONE: return new ContainerEssenceRecombinatorLevelOne(player.inventory,
+                        (TileEntityEssenceRecombinatorLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -64,6 +69,8 @@ public class GuiHandler implements IGuiHandler {
                     (TileEntityBreakdownMachineLevelTwo)world.getTileEntity(new BlockPos(x,y,z)));
             case GuiIDList.BREAKDOWN_MACHINE_LEVEL_THREE_ID: return new GuiBreakdownMachineLevelThree(player.inventory,
                     (TileEntityBreakdownMachineLevelThree)world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.ESSENCE_RECOMBINATOR_LEVEL_ONE: return new GuiEssenceRecombinatorLevelOne(player.inventory,
+                    (TileEntityEssenceRecombinatorLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;
