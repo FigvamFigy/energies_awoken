@@ -14,6 +14,7 @@ public class GuiIDList {
     public static final int BREAKDOWN_MACHINE_LEVEL_TWO_ID = 2;
     public static final int BREAKDOWN_MACHINE_LEVEL_THREE_ID = 3;
     public static final int ESSENCE_RECOMBINATOR_LEVEL_ONE = 4;
+    public static final int ESSENCE_RECOMBINATOR_LEVEL_TWO = 5;
 
 
 }
