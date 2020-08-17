@@ -24,6 +24,9 @@ import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinato
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.ContainerSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.GuiSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
+import com.figvam.energies_awoken.block.splitter.splitter_level_two.ContainerSplitterLevelTwo;
+import com.figvam.energies_awoken.block.splitter.splitter_level_two.GuiSplitterLevelTwo;
+import com.figvam.energies_awoken.block.splitter.splitter_level_two.TileEntitySplitterLevelTwo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -64,6 +67,8 @@ public class GuiHandler implements IGuiHandler {
                         (TileEntityEssenceRecombinatorLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
                 case GuiIDList.SPLITTER_LEVEL_ONE: return new ContainerSplitterLevelOne(player.inventory,
                         (TileEntitySplitterLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.SPLITTER_LEVEL_TWO: return new ContainerSplitterLevelTwo(player.inventory,
+                        (TileEntitySplitterLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -92,6 +97,8 @@ public class GuiHandler implements IGuiHandler {
                     (TileEntityEssenceRecombinatorLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
             case GuiIDList.SPLITTER_LEVEL_ONE: return new GuiSplitterLevelOne(player.inventory,
                     (TileEntitySplitterLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.SPLITTER_LEVEL_TWO: return new GuiSplitterLevelTwo(player.inventory,
+                    (TileEntitySplitterLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;
