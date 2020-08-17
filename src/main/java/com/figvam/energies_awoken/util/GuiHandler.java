@@ -21,6 +21,9 @@ import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinato
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.ContainerEssenceRecombinatorLevelTwo;
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.GuiEssenceRecombinatorLevelTwo;
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.TileEntityEssenceRecombinatorLevelTwo;
+import com.figvam.energies_awoken.block.splitter.splitter_level_one.ContainerSplitterLevelOne;
+import com.figvam.energies_awoken.block.splitter.splitter_level_one.GuiSplitterLevelOne;
+import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -59,6 +62,8 @@ public class GuiHandler implements IGuiHandler {
                         (TileEntityEssenceRecombinatorLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
                 case GuiIDList.ESSENCE_RECOMBINATOR_LEVEL_THREE: return new ContainerEssenceRecombinatorLevelThree(player.inventory,
                         (TileEntityEssenceRecombinatorLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.SPLITTER_LEVEL_ONE: return new ContainerSplitterLevelOne(player.inventory,
+                        (TileEntitySplitterLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -83,8 +88,10 @@ public class GuiHandler implements IGuiHandler {
                     (TileEntityEssenceRecombinatorLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
             case GuiIDList.ESSENCE_RECOMBINATOR_LEVEL_TWO: return new GuiEssenceRecombinatorLevelTwo(player.inventory,
                     (TileEntityEssenceRecombinatorLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
-            case GuiIDList.ESSENCE_RECOMBINATOR_LEVEL_THREE:return new GuiEssenceRecombinatorLevelThree(player.inventory,
+            case GuiIDList.ESSENCE_RECOMBINATOR_LEVEL_THREE: return new GuiEssenceRecombinatorLevelThree(player.inventory,
                     (TileEntityEssenceRecombinatorLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.SPLITTER_LEVEL_ONE: return new GuiSplitterLevelOne(player.inventory,
+                    (TileEntitySplitterLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;

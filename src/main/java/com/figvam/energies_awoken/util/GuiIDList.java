@@ -16,6 +16,7 @@ public class GuiIDList {
     public static final int ESSENCE_RECOMBINATOR_LEVEL_ONE = 4;
     public static final int ESSENCE_RECOMBINATOR_LEVEL_TWO = 5;
     public static final int ESSENCE_RECOMBINATOR_LEVEL_THREE = 6;
+    public static final int SPLITTER_LEVEL_ONE = 7;
 
 
 }

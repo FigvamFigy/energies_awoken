@@ -14,6 +14,8 @@ import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinato
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_three.TileEntityEssenceRecombinatorLevelThree;
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.BlockEssenceRecombinatorLevelTwo;
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.TileEntityEssenceRecombinatorLevelTwo;
+import com.figvam.energies_awoken.block.splitter.splitter_level_one.BlockSplitterLevelOne;
+import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 
@@ -40,6 +42,7 @@ public class TileEntityModList {
         TILE_ENTITIES.add(TileEntityEssenceRecombinatorLevelOne.class);
         TILE_ENTITIES.add(TileEntityEssenceRecombinatorLevelTwo.class);
         TILE_ENTITIES.add(TileEntityEssenceRecombinatorLevelThree.class);
+        TILE_ENTITIES.add(TileEntitySplitterLevelOne.class);
 
     }
 
@@ -51,6 +54,7 @@ public class TileEntityModList {
         BLOCKS.add(BlockEssenceRecombinatorLevelOne.getInstance());
         BLOCKS.add(BlockEssenceRecombinatorLevelTwo.getInstance());
         BLOCKS.add(BlockEssenceRecombinatorLevelThree.getInstance());
+        BLOCKS.add(BlockSplitterLevelOne.getInstance());
     }
 
 
