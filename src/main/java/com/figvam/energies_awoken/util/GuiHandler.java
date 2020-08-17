@@ -24,6 +24,9 @@ import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinato
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.ContainerSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.GuiSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
+import com.figvam.energies_awoken.block.splitter.splitter_level_three.ContainerSplitterLevelThree;
+import com.figvam.energies_awoken.block.splitter.splitter_level_three.GuiSplitterLevelThree;
+import com.figvam.energies_awoken.block.splitter.splitter_level_three.TileEntitySplitterLevelThree;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.ContainerSplitterLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.GuiSplitterLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.TileEntitySplitterLevelTwo;
@@ -69,6 +72,8 @@ public class GuiHandler implements IGuiHandler {
                         (TileEntitySplitterLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
                 case GuiIDList.SPLITTER_LEVEL_TWO: return new ContainerSplitterLevelTwo(player.inventory,
                         (TileEntitySplitterLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.SPLITTER_LEVEL_THREE: return new ContainerSplitterLevelThree(player.inventory,
+                        (TileEntitySplitterLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -99,6 +104,8 @@ public class GuiHandler implements IGuiHandler {
                     (TileEntitySplitterLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
             case GuiIDList.SPLITTER_LEVEL_TWO: return new GuiSplitterLevelTwo(player.inventory,
                     (TileEntitySplitterLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.SPLITTER_LEVEL_THREE: return new GuiSplitterLevelThree(player.inventory,
+                    (TileEntitySplitterLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;
