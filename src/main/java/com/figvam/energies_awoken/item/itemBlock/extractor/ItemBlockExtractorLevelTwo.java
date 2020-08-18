@@ -1,12 +1,11 @@
 package com.figvam.energies_awoken.item.itemBlock.extractor;
 
-import com.figvam.energies_awoken.block.extractor.extractor_level_one.BlockExtractorLevelOne;
-import com.figvam.energies_awoken.block.extractor.extractor_level_two.BLockExtractorLevelTwo;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.BlockExtractorLevelTwo;
 import net.minecraft.item.ItemBlock;
 
 public class ItemBlockExtractorLevelTwo extends ItemBlock {
 
-    private static final BLockExtractorLevelTwo BLOCK_EXTRACTOR_LEVEL_TWO = BLockExtractorLevelTwo.getInstance();
+    private static final BlockExtractorLevelTwo BLOCK_EXTRACTOR_LEVEL_TWO = BlockExtractorLevelTwo.getInstance();
     private static ItemBlockExtractorLevelTwo instance;
 
     private ItemBlockExtractorLevelTwo(){

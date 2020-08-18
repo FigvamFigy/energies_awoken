@@ -1,8 +1,6 @@
 package com.figvam.energies_awoken.block.extractor.extractor_level_two;
 
 import com.figvam.energies_awoken.EnergiesAwokenMain;
-import com.figvam.energies_awoken.block.extractor.extractor_level_one.BlockExtractorLevelOne;
-import com.figvam.energies_awoken.block.extractor.extractor_level_one.TileEntityExtractorLevelOne;
 import com.figvam.energies_awoken.util.GuiIDList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -17,11 +15,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BLockExtractorLevelTwo extends Block {
+public class BlockExtractorLevelTwo extends Block {
 
-    private static BLockExtractorLevelTwo instance = null;
+    private static BlockExtractorLevelTwo instance = null;
 
-    private BLockExtractorLevelTwo(){
+    private BlockExtractorLevelTwo(){
         super(Material.IRON);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         setHardness(5f);
@@ -31,9 +29,9 @@ public class BLockExtractorLevelTwo extends Block {
 
     }
 
-    public static BLockExtractorLevelTwo getInstance(){
+    public static BlockExtractorLevelTwo getInstance(){
         if(instance == null){
-            instance = new BLockExtractorLevelTwo();
+            instance = new BlockExtractorLevelTwo();
         }
         return instance;
     }

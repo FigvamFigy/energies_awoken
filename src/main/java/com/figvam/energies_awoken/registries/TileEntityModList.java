@@ -1,7 +1,5 @@
 package com.figvam.energies_awoken.registries;
 
-import com.figvam.energies_awoken.block.breakdown_machine.BlockBreakdownMachine;
-import com.figvam.energies_awoken.block.breakdown_machine.TileEntityBreakdownMachine;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.BlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_1.TileEntityBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_level_2.BlockBreakdownMachineLevelTwo;
@@ -18,7 +16,7 @@ import com.figvam.energies_awoken.block.extractor.extractor_level_one.BlockExtra
 import com.figvam.energies_awoken.block.extractor.extractor_level_one.TileEntityExtractorLevelOne;
 import com.figvam.energies_awoken.block.extractor.extractor_level_three.BlockExtractorLevelThree;
 import com.figvam.energies_awoken.block.extractor.extractor_level_three.TileEntityExtractorLevelThree;
-import com.figvam.energies_awoken.block.extractor.extractor_level_two.BLockExtractorLevelTwo;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.BlockExtractorLevelTwo;
 import com.figvam.energies_awoken.block.extractor.extractor_level_two.TileEntityExtractorLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.BlockSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
@@ -74,7 +72,7 @@ public class TileEntityModList {
         BLOCKS.add(BlockSplitterLevelTwo.getInstance());
         BLOCKS.add(BlockSplitterLevelThree.getInstance());
         BLOCKS.add(BlockExtractorLevelOne.getInstance());
-        BLOCKS.add(BLockExtractorLevelTwo.getInstance());
+        BLOCKS.add(BlockExtractorLevelTwo.getInstance());
         BLOCKS.add(BlockExtractorLevelThree.getInstance());
     }
 
