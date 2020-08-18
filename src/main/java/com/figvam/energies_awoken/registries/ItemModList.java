@@ -5,6 +5,7 @@ import com.figvam.energies_awoken.item.item.geode.ItemBlueGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemPurpleGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemRedGeode;
 import com.figvam.energies_awoken.item.item.solid_base_life_energy.ItemGroundingLifeEnergy;
+import com.figvam.energies_awoken.item.item.syringe.ItemEmptySyringe;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelTwo;
@@ -49,7 +50,8 @@ public class ItemModList {
             ItemBlockEssenceRecombinatorLevelThree.getInstance(),
             ItemBlockExtractorLevelOne.getInstance(),
             ItemBlockExtractorLevelTwo.getInstance(),
-            ItemBlockExtractorLevelThree.getInstance()
+            ItemBlockExtractorLevelThree.getInstance(),
+            ItemEmptySyringe.getInstance()
     };
 
 }
