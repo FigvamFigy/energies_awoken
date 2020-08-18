@@ -10,6 +10,7 @@ import com.figvam.energies_awoken.block.breakdown_machine.breakdown_machine_leve
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_one.BlockEssenceRecombinatorLevelOne;
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_three.BlockEssenceRecombinatorLevelThree;
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.BlockEssenceRecombinatorLevelTwo;
+import com.figvam.energies_awoken.block.extractor.extractor_level_one.BlockExtractorLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.BlockSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_three.BlockSplitterLevelThree;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.BlockSplitterLevelTwo;
@@ -33,7 +34,8 @@ public class BlockModList {
             BlockSplitterLevelThree.getInstance(),
             BlockEssenceRecombinatorLevelOne.getInstance(),
             BlockEssenceRecombinatorLevelTwo.getInstance(),
-            BlockEssenceRecombinatorLevelThree.getInstance()
+            BlockEssenceRecombinatorLevelThree.getInstance(),
+            BlockExtractorLevelOne.getInstance()
     };
 
 
