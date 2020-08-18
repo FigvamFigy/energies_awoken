@@ -6,6 +6,7 @@ import com.figvam.energies_awoken.item.item.geode.ItemPurpleGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemRedGeode;
 import com.figvam.energies_awoken.item.item.solid_base_life_energy.ItemGroundingLifeEnergy;
 import com.figvam.energies_awoken.item.item.syringe.ItemEmptySyringe;
+import com.figvam.energies_awoken.item.item.vial.*;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreakdownMachineLevelTwo;
@@ -22,7 +23,6 @@ import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevel
 import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.splitter.ItemBlockSplitterLevelTwo;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
@@ -51,7 +51,17 @@ public class ItemModList {
             ItemBlockExtractorLevelOne.getInstance(),
             ItemBlockExtractorLevelTwo.getInstance(),
             ItemBlockExtractorLevelThree.getInstance(),
-            ItemEmptySyringe.getInstance()
+            ItemEmptySyringe.getInstance(),
+            ItemEmptyVial.getInstance(),
+            ItemInfernalVial.getInstance(),
+            ItemAquaVial.getInstance(),
+            ItemBeastVial.getInstance(),
+            ItemDecayingVial.getInstance(),
+            ItemDemonicVial.getInstance(),
+            ItemLightVial.getInstance(),
+            ItemVoidVial.getInstance(),
+            ItemCosmicFabricVial.getInstance(),
+            ItemEldritchVial.getInstance()
     };
 
 }
