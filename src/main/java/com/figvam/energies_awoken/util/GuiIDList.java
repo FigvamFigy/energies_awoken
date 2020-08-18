@@ -19,6 +19,7 @@ public class GuiIDList {
     public static final int SPLITTER_LEVEL_ONE = 7;
     public static final int SPLITTER_LEVEL_TWO = 8;
     public static final int SPLITTER_LEVEL_THREE = 9;
+    public static final int EXTRACTOR_LEVEL_ONE = 10;
 
 
 }
