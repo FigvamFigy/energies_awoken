@@ -24,6 +24,9 @@ import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinato
 import com.figvam.energies_awoken.block.extractor.extractor_level_one.ContainerExtractorLevelOne;
 import com.figvam.energies_awoken.block.extractor.extractor_level_one.GuiExtractorLevelOne;
 import com.figvam.energies_awoken.block.extractor.extractor_level_one.TileEntityExtractorLevelOne;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.ContainerExtractorLevelTwo;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.GuiExtractorLevelTwo;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.TileEntityExtractorLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.ContainerSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.GuiSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
@@ -79,6 +82,8 @@ public class GuiHandler implements IGuiHandler {
                         (TileEntitySplitterLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
                 case GuiIDList.EXTRACTOR_LEVEL_ONE: return new ContainerExtractorLevelOne(player.inventory,
                         (TileEntityExtractorLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
+                case GuiIDList.EXTRACTOR_LEVEL_TWO: return new ContainerExtractorLevelTwo(player.inventory,
+                        (TileEntityExtractorLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
 
             }
         }
@@ -113,6 +118,8 @@ public class GuiHandler implements IGuiHandler {
                     (TileEntitySplitterLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
             case GuiIDList.EXTRACTOR_LEVEL_ONE: return new GuiExtractorLevelOne(player.inventory,
                     (TileEntityExtractorLevelOne) world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.EXTRACTOR_LEVEL_TWO: return new GuiExtractorLevelTwo(player.inventory,
+                    (TileEntityExtractorLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
         return null;

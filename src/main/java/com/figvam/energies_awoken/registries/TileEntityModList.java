@@ -16,6 +16,8 @@ import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinato
 import com.figvam.energies_awoken.block.essence_recombinator.essence_recombinator_level_two.TileEntityEssenceRecombinatorLevelTwo;
 import com.figvam.energies_awoken.block.extractor.extractor_level_one.BlockExtractorLevelOne;
 import com.figvam.energies_awoken.block.extractor.extractor_level_one.TileEntityExtractorLevelOne;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.BLockExtractorLevelTwo;
+import com.figvam.energies_awoken.block.extractor.extractor_level_two.TileEntityExtractorLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.BlockSplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_one.TileEntitySplitterLevelOne;
 import com.figvam.energies_awoken.block.splitter.splitter_level_three.BlockSplitterLevelThree;
@@ -52,6 +54,7 @@ public class TileEntityModList {
         TILE_ENTITIES.add(TileEntitySplitterLevelTwo.class);
         TILE_ENTITIES.add(TileEntitySplitterLevelThree.class);
         TILE_ENTITIES.add(TileEntityExtractorLevelOne.class);
+        TILE_ENTITIES.add(TileEntityExtractorLevelTwo.class);
 
 
     }
@@ -68,6 +71,7 @@ public class TileEntityModList {
         BLOCKS.add(BlockSplitterLevelTwo.getInstance());
         BLOCKS.add(BlockSplitterLevelThree.getInstance());
         BLOCKS.add(BlockExtractorLevelOne.getInstance());
+        BLOCKS.add(BLockExtractorLevelTwo.getInstance());
     }
 
 
