@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "energies_awoken:extractor/extractor_level_three" }
+  }
+}
