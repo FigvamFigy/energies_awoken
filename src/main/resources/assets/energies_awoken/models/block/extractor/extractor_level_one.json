@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "energies_awoken:blocks/extractor/extractor_level_one/extractor",
+    "up": "energies_awoken:blocks/extractor/extractor_level_one/extractor",
+    "north": "energies_awoken:blocks/extractor/extractor_level_one/extractor",
+    "east": "energies_awoken:blocks/extractor/extractor_level_one/extractor",
+    "south": "energies_awoken:blocks/extractor/extractor_level_one/extractor",
+    "west": "energies_awoken:blocks/extractor/extractor_level_one/extractor",
+    "particle": "energies_awoken:blocks/extractor/extractor_level_one/extractor"
+  }
+
+}

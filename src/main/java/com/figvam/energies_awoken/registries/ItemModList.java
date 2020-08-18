@@ -11,6 +11,9 @@ import com.figvam.energies_awoken.item.itemBlock.breakDownMachine.ItemBlockBreak
 import com.figvam.energies_awoken.item.itemBlock.essence_recombinator.ItemBlockEssenceRecombinatorLevelOne;
 import com.figvam.energies_awoken.item.itemBlock.essence_recombinator.ItemBlockEssenceRecombinatorLevelThree;
 import com.figvam.energies_awoken.item.itemBlock.essence_recombinator.ItemBlockEssenceRecombinatorLevelTwo;
+import com.figvam.energies_awoken.item.itemBlock.extractor.ItemBlockExtractorLevelOne;
+import com.figvam.energies_awoken.item.itemBlock.extractor.ItemBlockExtractorLevelThree;
+import com.figvam.energies_awoken.item.itemBlock.extractor.ItemBlockExtractorLevelTwo;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockBlueGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockPurpleGeodeOre;
 import com.figvam.energies_awoken.item.itemBlock.geode.ItemBlockRedGeodeOre;
@@ -43,7 +46,10 @@ public class ItemModList {
             ItemBlockSplitterLevelThree.getInstance(),
             ItemBlockEssenceRecombinatorLevelOne.getInstance(),
             ItemBlockEssenceRecombinatorLevelTwo.getInstance(),
-            ItemBlockEssenceRecombinatorLevelThree.getInstance()
+            ItemBlockEssenceRecombinatorLevelThree.getInstance(),
+            ItemBlockExtractorLevelOne.getInstance(),
+            ItemBlockExtractorLevelTwo.getInstance(),
+            ItemBlockExtractorLevelThree.getInstance()
     };
 
 }
