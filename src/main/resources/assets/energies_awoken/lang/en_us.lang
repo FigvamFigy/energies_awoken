@@ -30,4 +30,8 @@ item.void_vial.name=Void Vial
 item.cosmic_fabric_vial.name=Cosmic Fabric Vial
 item.demonic_vial.name=Demonic Vial
 item.eldritch_vial.name=Eldritch Vial
+item.life_energy_backpack_level_one.name=Life Energy Backpack Level One
+item.life_energy_backpack_level_two.name=Life Energy Backpack Level Two
+item.life_energy_backpack_level_three.name=Life Energy Backpack Level Three
+item.vial_pack.name=Vial Pack
 

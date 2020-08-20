@@ -4,6 +4,9 @@ import com.figvam.energies_awoken.item.item.bucket.ItemBucketOfFlora;
 import com.figvam.energies_awoken.item.item.geode.ItemBlueGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemPurpleGeode;
 import com.figvam.energies_awoken.item.item.geode.ItemRedGeode;
+import com.figvam.energies_awoken.item.item.life_energy_backpack.ItemLifeEnergyBackpackLevelOne;
+import com.figvam.energies_awoken.item.item.life_energy_backpack.ItemLifeEnergyBackpackLevelThree;
+import com.figvam.energies_awoken.item.item.life_energy_backpack.ItemLifeEnergyBackpackLevelTwo;
 import com.figvam.energies_awoken.item.item.solid_base_life_energy.ItemGroundingLifeEnergy;
 import com.figvam.energies_awoken.item.item.syringe.ItemEmptySyringe;
 import com.figvam.energies_awoken.item.item.vial.*;
@@ -61,7 +64,11 @@ public class ItemModList {
             ItemLightVial.getInstance(),
             ItemVoidVial.getInstance(),
             ItemCosmicFabricVial.getInstance(),
-            ItemEldritchVial.getInstance()
+            ItemEldritchVial.getInstance(),
+            ItemLifeEnergyBackpackLevelOne.getInstance(),
+            ItemLifeEnergyBackpackLevelTwo.getInstance(),
+            ItemLifeEnergyBackpackLevelThree.getInstance(),
+            ItemVialPack.getInstance()
     };
 
 }
