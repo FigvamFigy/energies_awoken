@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "energies_awoken:items/life_energy_backpack/life_energy_backpack_level_two"
+  }
+}
