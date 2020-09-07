@@ -39,6 +39,7 @@ import com.figvam.energies_awoken.block.splitter.splitter_level_three.TileEntity
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.ContainerSplitterLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.GuiSplitterLevelTwo;
 import com.figvam.energies_awoken.block.splitter.splitter_level_two.TileEntitySplitterLevelTwo;
+import com.figvam.energies_awoken.item.item.life_energy_backpack.life_energy_backpack_level_one.GuiLifeEnergyBackpackLevelOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -127,6 +128,7 @@ public class GuiHandler implements IGuiHandler {
                     (TileEntityExtractorLevelTwo) world.getTileEntity(new BlockPos(x,y,z)));
             case GuiIDList.EXTRACTOR_LEVEL_THREE: return new GuiExtractorLevelThree(player.inventory,
                     (TileEntityExtractorLevelThree) world.getTileEntity(new BlockPos(x,y,z)));
+            case GuiIDList.BACKPACK: return new GuiLifeEnergyBackpackLevelOne();
         }
 
         return null;

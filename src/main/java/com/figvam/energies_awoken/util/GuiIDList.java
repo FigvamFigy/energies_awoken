@@ -22,6 +22,7 @@ public class GuiIDList {
     public static final int EXTRACTOR_LEVEL_ONE = 10;
     public static final int EXTRACTOR_LEVEL_TWO = 11;
     public static final int EXTRACTOR_LEVEL_THREE = 12;
+    public static final int BACKPACK = 13;
 
 
 }
