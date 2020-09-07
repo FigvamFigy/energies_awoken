@@ -15,6 +15,8 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class CommonProxy {
 
 
+    public void setupClient() {}
+
 
     public void preInit(FMLPreInitializationEvent event){
     }
