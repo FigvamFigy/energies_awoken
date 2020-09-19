@@ -28,7 +28,7 @@ public class CompoundEnergyProvider implements ICapabilitySerializable<NBTTagCom
     @Nullable
     @Override
     public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
-        return capability == COMPOUND_ENERGY_CAPABILITY ? COMPOUND_ENERGY_CAPABILITY.<T> cast(this.instance) : null;
+        return capability == COMPOUND_ENERGY_CAPABILITY ? COMPOUND_ENERGY_CAPABILITY.<T>cast(this.instance) : null;
     }
 
 //    @Override
@@ -66,12 +66,12 @@ public class CompoundEnergyProvider implements ICapabilitySerializable<NBTTagCom
 //
 //        return returnCompound;
 
-        return (NBTTagCompound) COMPOUND_ENERGY_CAPABILITY.getStorage().writeNBT(COMPOUND_ENERGY_CAPABILITY,this.instance,null);
+        return (NBTTagCompound) COMPOUND_ENERGY_CAPABILITY.getStorage().writeNBT(COMPOUND_ENERGY_CAPABILITY, this.instance, null);
     }
 
     @Override
     public void deserializeNBT(NBTTagCompound nbt) {
-        COMPOUND_ENERGY_CAPABILITY.getStorage().readNBT(COMPOUND_ENERGY_CAPABILITY,this.instance,null,nbt);
+        COMPOUND_ENERGY_CAPABILITY.getStorage().readNBT(COMPOUND_ENERGY_CAPABILITY, this.instance, null, nbt);
 
 
     }

@@ -10,6 +10,9 @@ import com.figvam.energies_awoken.util.ItemCorrespondingCompoundEnergy;
 import com.figvam.energies_awoken.util.compound_energy.CompoundEnergy;
 import com.figvam.energies_awoken.util.compound_energy.CompoundEnergyStorage;
 import com.figvam.energies_awoken.util.compound_energy.ICompoundEnergy;
+import com.figvam.energies_awoken.util.custom_capabilities.life_energy.ILifeEnergy;
+import com.figvam.energies_awoken.util.custom_capabilities.life_energy.LifeEnergy;
+import com.figvam.energies_awoken.util.custom_capabilities.life_energy.LifeEnergyStorage;
 import com.google.common.eventbus.Subscribe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -66,13 +69,16 @@ public class EnergiesAwokenMain {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
+        proxy.preInit(event);
+
+        //CapabilityManager.INSTANCE.register(ILifeEnergy.class,new LifeEnergyStorage(), LifeEnergy::new);
+
         TileEntityModList tileEntityModList = new TileEntityModList();
         RegistryEventHandler.registerTileEntity();
-        ItemCorrespondingCompoundEnergy itemCorrespondingCompoundEnergy = new ItemCorrespondingCompoundEnergy();
 
+        ItemCorrespondingCompoundEnergy itemCorrespondingCompoundEnergy = new ItemCorrespondingCompoundEnergy();
         ItemCorrespondingCompoundEnergy.fillHashMapFromAcceptedItems(AcceptedItemsInBreakdown.ACCEPTED_ITEMS,AcceptedItemsInBreakdown.ITEM_COMPOUND_ENERGY);
 
-        //CapabilityManager.INSTANCE.register(ICompoundEnergy.class, new CompoundEnergyStorage(), CompoundEnergy::new);
     }
 
     @Mod.EventHandler
@@ -80,6 +86,7 @@ public class EnergiesAwokenMain {
     {
         proxy.init(event);
         proxy.setupClient();
+//        CapabilityManager.INSTANCE.register(ILifeEnergy.class,new LifeEnergyStorage(), LifeEnergy::new);
 
     }
 
