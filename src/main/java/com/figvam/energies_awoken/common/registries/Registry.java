@@ -25,6 +25,9 @@ public class Registry {
     private static final RegistryObject<Item> ITEM_BEAST_VIAL = ITEM_DEFERRED_REGISTER.register("beast_vial", () -> new ItemBeastVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_DECAYING_VIAL = ITEM_DEFERRED_REGISTER.register("decaying_vial", () -> new ItemDecayingVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_DEMONIC_VIAL = ITEM_DEFERRED_REGISTER.register("demonic_vial", () -> new ItemDemonicVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_DISCORDIAN_VIAL = ITEM_DEFERRED_REGISTER.register("discordian_vial", () -> new ItemDiscordianVIal(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_VOID_VIAL = ITEM_DEFERRED_REGISTER.register("void_vial", () -> new ItemVoidVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_DESOLATION_VIAL = ITEM_DEFERRED_REGISTER.register("desolation_vial", () -> new ItemDesolationVial(new Item.Properties()));
 
     public static DeferredRegister<Block> getBlockDeferredRegister() {
         return BLOCK_DEFERRED_REGISTER;
