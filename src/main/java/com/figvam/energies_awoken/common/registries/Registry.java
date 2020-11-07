@@ -28,6 +28,10 @@ public class Registry {
     private static final RegistryObject<Item> ITEM_DISCORDIAN_VIAL = ITEM_DEFERRED_REGISTER.register("discordian_vial", () -> new ItemDiscordianVIal(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_VOID_VIAL = ITEM_DEFERRED_REGISTER.register("void_vial", () -> new ItemVoidVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_DESOLATION_VIAL = ITEM_DEFERRED_REGISTER.register("desolation_vial", () -> new ItemDesolationVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_ELDRITCH_VIAL = ITEM_DEFERRED_REGISTER.register("eldritch_vial", () -> new ItemEldritchVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_COSMIC_FABRIC_VIAL = ITEM_DEFERRED_REGISTER.register("cosmic_fabric_vial", () -> new ItemCosmicFabricVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_PRESCIENT_VIAL = ITEM_DEFERRED_REGISTER.register("prescient_vial", () -> new ItemPrescientVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_EMPTY_VIAL = ITEM_DEFERRED_REGISTER.register("empty_vial", () -> new ItemEmptyVial(new Item.Properties()));
 
     public static DeferredRegister<Block> getBlockDeferredRegister() {
         return BLOCK_DEFERRED_REGISTER;
