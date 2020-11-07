@@ -1,9 +1,7 @@
 package com.figvam.energies_awoken.common.registries;
 
 import com.figvam.energies_awoken.ModDetails;
-import com.figvam.energies_awoken.common.item.vial.ItemAquaVial;
-import com.figvam.energies_awoken.common.item.vial.ItemInfernalVial;
-import com.figvam.energies_awoken.common.item.vial.ItemTerraVial;
+import com.figvam.energies_awoken.common.item.vial.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -24,6 +22,9 @@ public class Registry {
     private static final RegistryObject<Item> ITEM_INFERNAL_VIAL = ITEM_DEFERRED_REGISTER.register("infernal_vial", () -> new ItemInfernalVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_TERRA_VIAL = ITEM_DEFERRED_REGISTER.register("terra_vial", () -> new ItemTerraVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_AQUA_VIAL = ITEM_DEFERRED_REGISTER.register("aqua_vial", () -> new ItemAquaVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_BEAST_VIAL = ITEM_DEFERRED_REGISTER.register("beast_vial", () -> new ItemBeastVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_DECAYING_VIAL = ITEM_DEFERRED_REGISTER.register("decaying_vial", () -> new ItemDecayingVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_DEMONIC_VIAL = ITEM_DEFERRED_REGISTER.register("demonic_vial", () -> new ItemDemonicVial(new Item.Properties()));
 
     public static DeferredRegister<Block> getBlockDeferredRegister() {
         return BLOCK_DEFERRED_REGISTER;

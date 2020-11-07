@@ -1,6 +1,9 @@
 {
   "item.energies_awoken.infernal_vial": "Infernal Vial",
   "item.energies_awoken.terra_vial": "Terra Vial",
-  "item.energies_awoken.aqua_vial": "Aqua Vial"
+  "item.energies_awoken.aqua_vial": "Aqua Vial",
+  "item.energies_awoken.beast_vial": "Beast Vial",
+  "item.energies_awoken.decaying_vial": "Decaying Vial",
+  "item.energies_awoken.demonic_vial": "Demonic Vial"
 
 }
