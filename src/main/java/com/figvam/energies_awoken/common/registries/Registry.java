@@ -1,6 +1,8 @@
 package com.figvam.energies_awoken.common.registries;
 
 import com.figvam.energies_awoken.ModDetails;
+import com.figvam.energies_awoken.util.CustomArmorMaterial;
+import com.figvam.energies_awoken.common.item.backpack.ItemLifeEnergyBackpack;
 import com.figvam.energies_awoken.common.item.vial.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -32,6 +34,7 @@ public class Registry {
     private static final RegistryObject<Item> ITEM_COSMIC_FABRIC_VIAL = ITEM_DEFERRED_REGISTER.register("cosmic_fabric_vial", () -> new ItemCosmicFabricVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_PRESCIENT_VIAL = ITEM_DEFERRED_REGISTER.register("prescient_vial", () -> new ItemPrescientVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_EMPTY_VIAL = ITEM_DEFERRED_REGISTER.register("empty_vial", () -> new ItemEmptyVial(new Item.Properties()));
+    private static final RegistryObject<Item> ITEM_LIFE_ENERGY_BACKPACK_VIAL = ITEM_DEFERRED_REGISTER.register("life_energy_backpack", () -> new ItemLifeEnergyBackpack(CustomArmorMaterial.BACKPACK,new Item.Properties()));
 
     public static DeferredRegister<Block> getBlockDeferredRegister() {
         return BLOCK_DEFERRED_REGISTER;
