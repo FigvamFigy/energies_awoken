@@ -1,7 +1,6 @@
 package com.figvam.energies_awoken.common.item.backpack;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
@@ -60,13 +59,5 @@ public class ModelBackpack<T extends LivingEntity> extends BipedModel<T> {
         }
     }
 
-    public void setupAngles(BipedModel<T> model)
-    {
-        copyProperties(model.bipedBody, this.mainBox);
-    }
 
-    private static void copyProperties(ModelRenderer source, ModelRenderer target)
-    {
-        target.copyModelAngles(source);
-    }
 }

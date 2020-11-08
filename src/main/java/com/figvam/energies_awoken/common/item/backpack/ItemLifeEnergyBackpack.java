@@ -29,8 +29,6 @@ public class ItemLifeEnergyBackpack extends ArmorItem {
     @Nullable
     @Override
     public <A extends BipedModel<?>> A getArmorModel(LivingEntity entityLiving, ItemStack itemStack, EquipmentSlotType armorSlot, A _default) {
-        ModelBackpack modelBackpack = new ModelBackpack();
-
         return (A) new ModelBackpack<>();
     }
 
