@@ -1,11 +1,17 @@
 package com.figvam.energies_awoken;
 
 import com.figvam.energies_awoken.client.gui.backpack.ScreenBackpack;
+import com.figvam.energies_awoken.common.item.backpack.ItemLifeEnergyBackpack;
 import com.figvam.energies_awoken.common.registries.Registry;
+import com.figvam.energies_awoken.util.capability.life_energy.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -29,7 +35,7 @@ public class EnergiesAwokenMod {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public EnergiesAwokenMod() {
-
+        
         Registry.getBlockDeferredRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.getItemDeferredRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.getContainerTypeDeferredRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -53,10 +59,15 @@ public class EnergiesAwokenMod {
     private void setup(final FMLCommonSetupEvent event)
     {
         // some preinit code
+
         ScreenManager.registerFactory(Registry.BACKPACK.get(), ScreenBackpack::new);
+        CapabilityManager.INSTANCE.register(ILifeEnergyCapability.class, new LifeEnergyCapbilityStorage(), LifeEnergyCapability::new);
+
+
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
+
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client

@@ -1,5 +1,6 @@
 package com.figvam.energies_awoken.client.gui.backpack;
 
+import com.figvam.energies_awoken.ModDetails;
 import com.figvam.energies_awoken.common.item.backpack.ContainerBackpack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -10,7 +11,7 @@ import net.minecraft.util.text.ITextComponent;
 public class ScreenBackpack extends ContainerScreen<ContainerBackpack> {
 
 
-    private static final ResourceLocation DISPENSER_GUI_TEXTURES = new ResourceLocation("textures/gui/container/dispenser.png");
+    private static final ResourceLocation DISPENSER_GUI_TEXTURES = new ResourceLocation(ModDetails.MOD_ID + ":textures/gui/backpack/backpack.png");
 
     public ScreenBackpack(ContainerBackpack screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);

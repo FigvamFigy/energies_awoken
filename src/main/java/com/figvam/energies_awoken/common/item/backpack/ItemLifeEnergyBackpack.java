@@ -1,6 +1,10 @@
 package com.figvam.energies_awoken.common.item.backpack;
 
 
+import com.figvam.energies_awoken.util.EnumLifeEnergy;
+import com.figvam.energies_awoken.util.capability.life_energy.ILifeEnergyCapability;
+import com.figvam.energies_awoken.util.capability.life_energy.LifeEnergyProvider;
+import com.google.common.base.Optional;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -18,10 +22,8 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
-import net.minecraftforge.registries.ObjectHolder;
 
 
 import javax.annotation.Nullable;
@@ -48,8 +50,28 @@ public class ItemLifeEnergyBackpack extends ArmorItem{
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-
         if(!worldIn.isRemote){
+            ItemStack itemHeld = null;
+
+            switch (handIn){
+                case OFF_HAND:
+                    itemHeld = playerIn.getHeldItemOffhand();
+                    break;
+                case MAIN_HAND:
+                    itemHeld = playerIn.getHeldItemMainhand();
+                    break;
+            }
+
+//            LazyOptional<ILifeEnergyCapability> optionalHandler = itemHeld.getCapability(LifeEnergyProvider.LIFE_ENERGY_CAP);
+//            if (optionalHandler.isPresent()) {
+//                ILifeEnergyCapability lifeEnergyCapability = optionalHandler.orElse(null);
+//                lifeEnergyCapability.addEnergy(EnumLifeEnergy.BEAST,1);
+//                System.out.println(lifeEnergyCapability.getEnergy(EnumLifeEnergy.BEAST));
+//
+//                itemHeld.serializeNBT();
+//
+//            }
+
             NetworkHooks.openGui((ServerPlayerEntity) playerIn, new INamedContainerProvider() {
                 @Override
                 public ITextComponent getDisplayName() {
@@ -58,10 +80,12 @@ public class ItemLifeEnergyBackpack extends ArmorItem{
 
                 @Nullable
                 @Override
-                public Container createMenu(int p_createMenu_1_, PlayerInventory playerInventory, PlayerEntity p_createMenu_3_) {
-                    return new ContainerBackpack(p_createMenu_1_,playerInventory);
+                public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity entity) {
+                    return new ContainerBackpack(id,playerInventory,null);
                 }
             });
+
+
         }
 
         return new ActionResult<>(ActionResultType.SUCCESS,playerIn.getHeldItem(handIn));

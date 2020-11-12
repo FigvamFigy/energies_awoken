@@ -4,19 +4,15 @@ import com.figvam.energies_awoken.common.registries.Registry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.DispenserContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.network.PacketBuffer;
 
-import javax.annotation.Nullable;
-
 public class ContainerBackpack extends Container {
 
-
-    public ContainerBackpack(int id, PlayerInventory playerInventory) {
+    public ContainerBackpack( int id, PlayerInventory playerInventory) {
         this(id,playerInventory,null);
     }
+
 
     public ContainerBackpack(int id, PlayerInventory playerInventory, PacketBuffer packetBuffer) {
         super(Registry.BACKPACK.get(), id);
