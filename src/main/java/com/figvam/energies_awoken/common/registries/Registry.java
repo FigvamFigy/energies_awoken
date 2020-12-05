@@ -1,11 +1,14 @@
 package com.figvam.energies_awoken.common.registries;
 
 import com.figvam.energies_awoken.ModDetails;
+import com.figvam.energies_awoken.common.item.backpack.ContainerBackpack;
 import com.figvam.energies_awoken.util.CustomArmorMaterial;
 import com.figvam.energies_awoken.common.item.backpack.ItemLifeEnergyBackpack;
 import com.figvam.energies_awoken.common.item.vial.*;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,7 +17,8 @@ public class Registry {
 
 
     private static final DeferredRegister<Block> BLOCK_DEFERRED_REGISTER = DeferredRegister.create(ForgeRegistries.BLOCKS, ModDetails.MOD_ID);
-    private static final DeferredRegister<Item> ITEM_DEFERRED_REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS,ModDetails.MOD_ID);
+    private static final DeferredRegister<Item> ITEM_DEFERRED_REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, ModDetails.MOD_ID);
+    private static final DeferredRegister<ContainerType<?>> CONTAINER_TYPE_DEFERRED_REGISTER = DeferredRegister.create(ForgeRegistries.CONTAINERS, ModDetails.MOD_ID);
 
 
     //BLOCKS
@@ -34,7 +38,14 @@ public class Registry {
     private static final RegistryObject<Item> ITEM_COSMIC_FABRIC_VIAL = ITEM_DEFERRED_REGISTER.register("cosmic_fabric_vial", () -> new ItemCosmicFabricVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_PRESCIENT_VIAL = ITEM_DEFERRED_REGISTER.register("prescient_vial", () -> new ItemPrescientVial(new Item.Properties()));
     private static final RegistryObject<Item> ITEM_EMPTY_VIAL = ITEM_DEFERRED_REGISTER.register("empty_vial", () -> new ItemEmptyVial(new Item.Properties()));
-    private static final RegistryObject<Item> ITEM_LIFE_ENERGY_BACKPACK_VIAL = ITEM_DEFERRED_REGISTER.register("life_energy_backpack", () -> new ItemLifeEnergyBackpack(CustomArmorMaterial.BACKPACK,new Item.Properties()));
+    public static final RegistryObject<Item> ITEM_LIFE_ENERGY_BACKPACK = ITEM_DEFERRED_REGISTER.register("life_energy_backpack", () -> new ItemLifeEnergyBackpack(CustomArmorMaterial.BACKPACK, new Item.Properties()));
+
+
+    //CONTAINERS
+
+
+    public static final RegistryObject<ContainerType<ContainerBackpack>> BACKPACK = CONTAINER_TYPE_DEFERRED_REGISTER.register("container_type_backpack", () -> IForgeContainerType.create(ContainerBackpack::new));
+
 
     public static DeferredRegister<Block> getBlockDeferredRegister() {
         return BLOCK_DEFERRED_REGISTER;
@@ -43,4 +54,10 @@ public class Registry {
     public static DeferredRegister<Item> getItemDeferredRegister() {
         return ITEM_DEFERRED_REGISTER;
     }
+
+    public static DeferredRegister<ContainerType<?>> getContainerTypeDeferredRegister() {
+        return CONTAINER_TYPE_DEFERRED_REGISTER;
+    }
+
+
 }
