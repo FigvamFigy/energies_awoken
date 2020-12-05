@@ -104,4 +104,12 @@ public class EnergiesAwokenMod {
             LOGGER.info("HELLO from Register Block");
         }
     }
+
+    @SubscribeEvent
+    public void attachCapability(AttachCapabilitiesEvent<ItemStack> event) {
+        if(event.getObject().getItem() instanceof ItemLifeEnergyBackpack){
+            event.addCapability(LifeEnergyProvider.RESOURCE_LOCATION_LIFE_ENERGY_CAP,new LifeEnergyProvider());
+        }
+
+    }
 }

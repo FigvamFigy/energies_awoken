@@ -1,6 +1,7 @@
 package com.figvam.energies_awoken.common.item.backpack;
 
 
+
 import com.figvam.energies_awoken.util.EnumLifeEnergy;
 import com.figvam.energies_awoken.util.capability.life_energy.ILifeEnergyCapability;
 import com.figvam.energies_awoken.util.capability.life_energy.LifeEnergyProvider;
@@ -23,17 +24,17 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 
 import javax.annotation.Nullable;
 
-public class ItemLifeEnergyBackpack extends ArmorItem{
+public class ItemLifeEnergyBackpack extends ArmorItem {
 
 
-
-    public ItemLifeEnergyBackpack(IArmorMaterial armorMaterial,Properties properties){
-        super(armorMaterial,EquipmentSlotType.CHEST,properties.group(ItemGroup.COMBAT));
+    public ItemLifeEnergyBackpack(IArmorMaterial armorMaterial, Properties properties) {
+        super(armorMaterial, EquipmentSlotType.CHEST, properties.group(ItemGroup.COMBAT));
     }
 
     @Nullable
@@ -48,30 +49,10 @@ public class ItemLifeEnergyBackpack extends ArmorItem{
         return (A) new ModelBackpack<>();
     }
 
+
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        if(!worldIn.isRemote){
-            ItemStack itemHeld = null;
-
-            switch (handIn){
-                case OFF_HAND:
-                    itemHeld = playerIn.getHeldItemOffhand();
-                    break;
-                case MAIN_HAND:
-                    itemHeld = playerIn.getHeldItemMainhand();
-                    break;
-            }
-
-//            LazyOptional<ILifeEnergyCapability> optionalHandler = itemHeld.getCapability(LifeEnergyProvider.LIFE_ENERGY_CAP);
-//            if (optionalHandler.isPresent()) {
-//                ILifeEnergyCapability lifeEnergyCapability = optionalHandler.orElse(null);
-//                lifeEnergyCapability.addEnergy(EnumLifeEnergy.BEAST,1);
-//                System.out.println(lifeEnergyCapability.getEnergy(EnumLifeEnergy.BEAST));
-//
-//                itemHeld.serializeNBT();
-//
-//            }
-
+        if (!worldIn.isRemote) {
             NetworkHooks.openGui((ServerPlayerEntity) playerIn, new INamedContainerProvider() {
                 @Override
                 public ITextComponent getDisplayName() {
@@ -85,11 +66,13 @@ public class ItemLifeEnergyBackpack extends ArmorItem{
                 }
             });
 
-
         }
-
         return new ActionResult<>(ActionResultType.SUCCESS,playerIn.getHeldItem(handIn));
+
     }
 
 
 }
+
+
+

@@ -12,12 +12,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class EventHandler {
 
 
-    @SubscribeEvent
-    public void attachCapability(AttachCapabilitiesEvent<ItemStack> event) {
-        if(event.getObject().getItem() instanceof ItemLifeEnergyBackpack){
-            event.addCapability(LifeEnergyProvider.RESOURCE_LOCATION_LIFE_ENERGY_CAP,new LifeEnergyProvider());
-        }
-
-    }
+//    @SubscribeEvent
+//    public void attachCapability(AttachCapabilitiesEvent<ItemStack> event) {
+//        if(event.getObject().getItem() instanceof ItemLifeEnergyBackpack){
+//            System.out.println("ATTATCHED CAPPABILITY");
+//            event.addCapability(LifeEnergyProvider.RESOURCE_LOCATION_LIFE_ENERGY_CAP,new LifeEnergyProvider());
+//        }
+//
+//    }
 
 }

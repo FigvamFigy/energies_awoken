@@ -5,17 +5,24 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 
 public class ContainerBackpack extends Container {
 
-    public ContainerBackpack( int id, PlayerInventory playerInventory) {
+    private PlayerInventory playerInventory;
+
+    //client, container type registration
+    public ContainerBackpack(int id, PlayerInventory playerInventory) {
         this(id,playerInventory,null);
+
     }
 
-
-    public ContainerBackpack(int id, PlayerInventory playerInventory, PacketBuffer packetBuffer) {
+    //server
+    public ContainerBackpack(int id, PlayerInventory playerInventory, PacketBuffer packetBuffer ) {
         super(Registry.BACKPACK.get(), id);
+
+        this.playerInventory = playerInventory;
 
         for(int k = 0; k < 3; ++k) {
             for(int i1 = 0; i1 < 9; ++i1) {
@@ -34,4 +41,6 @@ public class ContainerBackpack extends Container {
     public boolean canInteractWith(PlayerEntity playerIn) {
         return true;
     }
+
+
 }
